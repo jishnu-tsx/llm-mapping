@@ -1,0 +1,452 @@
+[
+  {
+    "id": "5cfb362b-0c1d-439a-93ca-afd5443d30fc",
+    "name": "ASSETS",
+    "ocr_value": null
+  },
+  {
+    "id": "7c08172d-fc5d-4447-ae25-cd8f29a3a349",
+    "name": "CURRENT ASSETS",
+    "ocr_value": null
+  },
+  {
+    "id": "4e8eb5c6-6bf2-43de-bb46-494b8c09e6ff",
+    "name": "Inventories",
+    "ocr_value": 20795.77
+  },
+  {
+    "id": "527b70cb-1b67-44d4-989d-30f9d92b470c",
+    "name": "Raw Materials",
+    "ocr_value": 8529.95
+  },
+  {
+    "id": "567412d2-1cac-4677-ac6e-623c6d4bb927",
+    "name": "Stock in process",
+    "ocr_value": 7818.92
+  },
+  {
+    "id": "74aede58-5488-4905-b987-5b447847867c",
+    "name": "Finished Goods",
+    "ocr_value": 543.33
+  },
+  {
+    "id": "5c5ac4fa-b919-4158-8de0-6dc14b2377c0",
+    "name": "Consumable Spares",
+    "ocr_value": 2371.77
+  },
+  {
+    "id": "c345a6d7-f7c8-4c3c-bce2-637a00eca4d5",
+    "name": "TOTAL INVENTORIES",
+    "ocr_value": null
+  },
+  {
+    "id": "60d54498-68b1-46e9-a075-909da044e38b",
+    "name": "Trade Debtors",
+    "ocr_value": 3355.27
+  },
+  {
+    "id": "6df1f1e3-ed64-4b39-987d-a8cc0a3cffc7",
+    "name": "Domestic Debtors over six months",
+    "ocr_value": null
+  },
+  {
+    "id": "c8c77409-21cc-4ed3-82b3-6edc6ea2ff5b",
+    "name": "Domestic Debtors less than six months",
+    "ocr_value": null
+  },
+  {
+    "id": "f7c3c0d1-b0ed-475e-a297-4d6e2ff36723",
+    "name": "Export Debtors over six months",
+    "ocr_value": null
+  },
+  {
+    "id": "af8a7fe1-31cb-4833-8281-bf305e6b6846",
+    "name": "Export Debtors less than six months",
+    "ocr_value": null
+  },
+  {
+    "id": "a5616999-4adb-4006-ad4a-60aa9bc90c92",
+    "name": "TOTAL DEBTORS",
+    "ocr_value": null
+  },
+  {
+    "id": "db87ebb6-9209-44f1-b85d-aebe7122bfef",
+    "name": "Other Current Assets",
+    "ocr_value": null
+  },
+  {
+    "id": "599a1f96-5d75-4487-bc67-1ad7f368abaf",
+    "name": "Cash and Bank Balance",
+    "ocr_value": 858.68
+  },
+  {
+    "id": "44d626b6-b076-4301-9312-c81ec9221153",
+    "name": "Prepaid Expenses",
+    "ocr_value": null
+  },
+  {
+    "id": "dafc38f2-0475-4ddf-b8fc-c11c15f308ad",
+    "name": "Advance Tax",
+    "ocr_value": null
+  },
+  {
+    "id": "601216fa-b41a-4d9d-b140-182f1dbe832e",
+    "name": "Deposits with Excise and Sales Tax",
+    "ocr_value": null
+  },
+  {
+    "id": "d1f500c7-d6d4-4e74-8bee-3cd602e8f265",
+    "name": "Current Assets-Loans and Advances",
+    "ocr_value": 32775.29
+  },
+  {
+    "id": "1d2b22c0-6897-45ff-8879-08dadbac15d0",
+    "name": "Sundry Deposits/Earnest Money Deposit (EMD)",
+    "ocr_value": null
+  },
+  {
+    "id": "ad1ac9ae-b8d7-4298-9c0b-8c9553dc9df1",
+    "name": "Balance with Govt Authorities",
+    "ocr_value": null
+  },
+  {
+    "id": "dc42dd3b-139e-419b-94f0-9b654a2344c7",
+    "name": "Other Advances",
+    "ocr_value": null
+  },
+  {
+    "id": "11af1f3e-3eb8-4af6-bb6b-9726cbfdc0bf",
+    "name": "Advance to Supplier",
+    "ocr_value": null
+  },
+  {
+    "id": "cec2b69b-ca47-4056-8c32-795e6bd239f0",
+    "name": "Others",
+    "ocr_value": null
+  },
+  {
+    "id": "d6a9d320-0215-4ee3-93e3-8bef46da4efc",
+    "name": "Total Other Current Assets",
+    "ocr_value": null
+  },
+  {
+    "id": "7641c147-a67b-4d72-9b29-7efacaa921a6",
+    "name": "Total Current Assets (a)",
+    "ocr_value": null
+  },
+  {
+    "id": "d7c05039-0422-4b3f-999e-236e2b5a6b42",
+    "name": "FIXED ASSETS",
+    "ocr_value": 31161.38
+  },
+  {
+    "id": "541c77ba-46c1-460a-bc3c-cb1fe88d78fd",
+    "name": "Land & Buildings",
+    "ocr_value": null
+  },
+  {
+    "id": "161793ed-136b-487f-baf6-33147649d8ab",
+    "name": "Plant & Machinery",
+    "ocr_value": 16445.88
+  },
+  {
+    "id": "f1de9ecf-f7b6-4356-b78f-aa899f354dc1",
+    "name": "Sundries",
+    "ocr_value": 1178.67
+  },
+  {
+    "id": "e0d4775c-78f2-4a06-909c-b347a618000f",
+    "name": "Gross Fixed Assets",
+    "ocr_value": null
+  },
+  {
+    "id": "312447b4-10a8-4637-82a2-38adb49b4cf9",
+    "name": "Less: Depreciation to date",
+    "ocr_value": 960.24
+  },
+  {
+    "id": "5be6efdd-c4e7-4b14-803e-0bac8200e3bc",
+    "name": "Net Fixed Assets",
+    "ocr_value": null
+  },
+  {
+    "id": "a8fbc927-42f0-44a0-9fae-66ec5ce392e7",
+    "name": "Capital Work in Progress",
+    "ocr_value": 21091.92
+  },
+  {
+    "id": "bcc8ae2b-af04-4d17-97ed-26765ac00565",
+    "name": "Total Fixed Assets (b)",
+    "ocr_value": null
+  },
+  {
+    "id": "540a4367-482a-4da4-a50a-dbc8d68ea3ac",
+    "name": "NON-CURRENT ASSETS",
+    "ocr_value": null
+  },
+  {
+    "id": "294a2827-4d80-4251-9e9c-fa5088ff13fe",
+    "name": "Investments in/Loans to subsidiaries",
+    "ocr_value": 2185.69
+  },
+  {
+    "id": "7dbf0a27-2226-4cab-87b9-3397a9405139",
+    "name": "Other Non Current Assets",
+    "ocr_value": null
+  },
+  {
+    "id": "9100a792-7d14-4210-a7a3-6b4590c326fe",
+    "name": "Investment in other companies",
+    "ocr_value": null
+  },
+  {
+    "id": "d8c305e0-1936-473c-a3f8-dcb83dfcc7df",
+    "name": "Investment in Mutual Funds",
+    "ocr_value": null
+  },
+  {
+    "id": "0734f30e-4d98-4d2a-9b25-66b71f501605",
+    "name": "NON-CURRENT ASSETS ",
+    "ocr_value": null
+  },
+  {
+    "id": "363530b9-2e41-4f7f-9960-41eff9e6f79c",
+    "name": "Overdue debtors",
+    "ocr_value": null
+  },
+  {
+    "id": "4e0aa453-c243-40c7-b3da-609817c68245",
+    "name": "Deposits with EB, etc.",
+    "ocr_value": null
+  },
+  {
+    "id": "6d1f4e01-94af-45de-8864-53028ad9c6fb",
+    "name": "Non-Moving Inventories",
+    "ocr_value": null
+  },
+  {
+    "id": "8fc655f6-dae3-4faa-907f-6e7fa4149cbb",
+    "name": "Others",
+    "ocr_value": null
+  },
+  {
+    "id": "78edd408-52ea-4999-8ad1-ec4176de3b91",
+    "name": "Total Other Non Current Assets (c)",
+    "ocr_value": null
+  },
+  {
+    "id": "69f2535c-f8e2-4322-b176-06659793d688",
+    "name": "Deferred Tax Asset (d)",
+    "ocr_value": null
+  },
+  {
+    "id": "2ecf2cfc-f4c8-4bda-b847-47ded785fb74",
+    "name": "INTANGIBLE ASSETS/MISC EXPENDITURE (e)",
+    "ocr_value": 806.63
+  },
+  {
+    "id": "76d37656-750c-4be5-9876-bcf59375b77f",
+    "name": "TOTAL ASSETS (a+b+c+d+e)",
+    "ocr_value": null
+  },
+  {
+    "id": "b33b0993-e643-45d0-a86b-2e125256c003",
+    "name": "LIABILITIES",
+    "ocr_value": null
+  },
+  {
+    "id": "cc1ca848-0865-47ea-8211-7c2c6cefb0fc",
+    "name": "CURRENT LIABILITIES",
+    "ocr_value": 34.03
+  },
+  {
+    "id": "6a3b36cc-83e0-42d7-9e9d-da68ebc84703",
+    "name": "Working Capital Borrowings",
+    "ocr_value": 10031.45
+  },
+  {
+    "id": "f3fbcb1f-b783-4c0e-bbbb-d5792c2b3a7f",
+    "name": "Borrowings from Applicant Bank",
+    "ocr_value": null
+  },
+  {
+    "id": "e3b12f76-a88a-4d00-8d4e-20baf92196f1",
+    "name": "From other Banks",
+    "ocr_value": null
+  },
+  {
+    "id": "cd2b1bd4-f002-486a-8b24-8ca7f61f9ba6",
+    "name": "Commercial Paper",
+    "ocr_value": null
+  },
+  {
+    "id": "926b1a21-689d-466f-932c-a272acb63d2a",
+    "name": "Sub- total (Bank Borrowings)",
+    "ocr_value": null
+  },
+  {
+    "id": "9d65b2c2-5d57-410f-b67c-1f5c4ab51b77",
+    "name": "Creditors for Purchases",
+    "ocr_value": 12720.55
+  },
+  {
+    "id": "97963ff5-9cf4-486f-8356-b4e5b7a31ef1",
+    "name": "Other Current Liabilities",
+    "ocr_value": null
+  },
+  {
+    "id": "80f736e4-865c-41b4-aeb1-9c7042eff4b2",
+    "name": "Creditors for Expenses",
+    "ocr_value": null
+  },
+  {
+    "id": "18876dfa-4984-4b08-821c-e883b06ed5cb",
+    "name": "Provision for Tax",
+    "ocr_value": null
+  },
+  {
+    "id": "5daab6b6-6461-4d79-a4af-bf04c76fa3e4",
+    "name": "Long Term Debt due within one year",
+    "ocr_value": null
+  },
+  {
+    "id": "f4a64ffc-d660-4145-bed3-bbe4ea19fc5b",
+    "name": "Outstanding Expenses",
+    "ocr_value": null
+  },
+  {
+    "id": "df66302b-273b-41cd-905e-a7f191e60529",
+    "name": "Advances From Customer",
+    "ocr_value": null
+  },
+  {
+    "id": "4b137dca-315b-4877-b296-feef52536fe7",
+    "name": "Others (Curr. Liabilities / Provisions)",
+    "ocr_value": null
+  },
+  {
+    "id": "929db481-32ab-4b2d-ae6d-0c8aa47e9f70",
+    "name": "Sub- total (Other Borrowings)",
+    "ocr_value": null
+  },
+  {
+    "id": "b1072652-efa9-47c6-b792-b7527fe08165",
+    "name": "Creditors on Capital Account",
+    "ocr_value": null
+  },
+  {
+    "id": "5a6646cd-fc42-47ba-8b99-6a4229ac35fb",
+    "name": "Total Current Liabilities (e)",
+    "ocr_value": null
+  },
+  {
+    "id": "2d6411e3-b9a1-4c69-a288-05eddc845b02",
+    "name": "LONG TERM LIABILITIES",
+    "ocr_value": null
+  },
+  {
+    "id": "50dc5f30-17c5-486d-a9ee-52a354439415",
+    "name": "Term Loan from Yes Bank",
+    "ocr_value": null
+  },
+  {
+    "id": "79b1b078-8a76-47c3-a53a-0fa082ade854",
+    "name": "Term Loan from institutions/Banks",
+    "ocr_value": null
+  },
+  {
+    "id": "7aa8dc92-6f43-4026-8192-731a69e2d460",
+    "name": "Other Long Term Liabilities",
+    "ocr_value": null
+  },
+  {
+    "id": "075c127a-b472-445a-be02-bf78c2b2fee4",
+    "name": "Preference Shares (Repayment Due within 3 years)",
+    "ocr_value": null
+  },
+  {
+    "id": "9359613d-3ad1-482b-aaa0-bd54b994fa99",
+    "name": "Fixed Deposits",
+    "ocr_value": null
+  },
+  {
+    "id": "e92b480d-64fe-480d-94ce-050e5e38de30",
+    "name": "Foreign currency loans",
+    "ocr_value": null
+  },
+  {
+    "id": "dfe817fe-2ad5-4e15-9994-214cc590f765",
+    "name": "Debentures",
+    "ocr_value": null
+  },
+  {
+    "id": "8b8b12f9-d96b-44c2-a082-41ba3dcf04df",
+    "name": "Others (Sales Tax Deferment Loan)",
+    "ocr_value": null
+  },
+  {
+    "id": "6572baf8-c48c-4087-b56f-e7b9a4ccce2b",
+    "name": "Long term liability to be taken as Quasi Equity",
+    "ocr_value": null
+  },
+  {
+    "id": "230fa589-da2d-4ee5-9622-739fec8beac1",
+    "name": "Total Other Long Term Liabilities",
+    "ocr_value": null
+  },
+  {
+    "id": "a3089c59-29e6-4092-be46-3bb36ba75e17",
+    "name": "Total Long Term Debt (f)",
+    "ocr_value": null
+  },
+  {
+    "id": "aac7c840-05ff-4310-b80b-eb9b95fc8010",
+    "name": "CAPITAL AND SURPLUS",
+    "ocr_value": null
+  },
+  {
+    "id": "14489580-148e-449b-a223-fd572b7f8442",
+    "name": "Paid up Capital",
+    "ocr_value": null
+  },
+  {
+    "id": "43745f53-e095-4753-8691-2a1cf757e6bf",
+    "name": "Preference Share Capital",
+    "ocr_value": null
+  },
+  {
+    "id": "b5f969b6-5a91-47a1-b76c-7973996a1669",
+    "name": "Reserves and Surplus",
+    "ocr_value": null
+  },
+  {
+    "id": "39a91a30-8c22-4ebc-b068-f2c90bf081d2",
+    "name": "Revaluation Reserves",
+    "ocr_value": 682.89
+  },
+  {
+    "id": "157aa074-a507-4f1d-a690-2db10002a74b",
+    "name": "Loss Bought Forward",
+    "ocr_value": null
+  },
+  {
+    "id": "74f90910-49bd-4ba9-b71f-f2c872481b33",
+    "name": "Capital & Reserves (g)",
+    "ocr_value": null
+  },
+  {
+    "id": "27fe745b-ce39-469e-bfae-f7a3acbdae85",
+    "name": "Deferred Tax Liability (h)",
+    "ocr_value": null
+  },
+  {
+    "id": "8e5a78ec-8d38-4b7a-a6d5-fbb8ff9883cc",
+    "name": "TOTAL LIABILITIES (e+f+g+h)",
+    "ocr_value": null
+  },
+  {
+    "id": "fdba970e-0e74-4895-ab67-e762055adbe3",
+    "name": "Contingent Liabilities",
+    "ocr_value": null
+  }
+]

@@ -1,0 +1,1966 @@
+{
+  "report_type": "Balance Sheet",
+  "financial_year": "2024",
+  "unit": "CRORES",
+  "items": [
+    {
+      "id": "5cfb362b-0c1d-439a-93ca-afd5443d30fc",
+      "name": "ASSETS",
+      "value": null,
+      "ocr_value": null,
+      "human_input_value": null,
+      "description": "Resources owned by the company that have economic value and can provide future benefit.",
+      "tags": [
+        "Resources",
+        "Holdings",
+        "Property",
+        "Economic Assets",
+        "Owned Assets"
+      ],
+      "is_header": true,
+      "calculations": null,
+      "children": {
+        "7c08172d-fc5d-4447-ae25-cd8f29a3a349": {
+          "id": "7c08172d-fc5d-4447-ae25-cd8f29a3a349",
+          "name": "CURRENT ASSETS",
+          "value": null,
+          "ocr_value": null,
+          "human_input_value": null,
+          "description": "Assets expected to be converted into cash or used up within one financial year.",
+          "tags": [
+            "Short-term Assets",
+            "Liquid Assets",
+            "Working Capital Assets",
+            "Quick Assets",
+            "CA"
+          ],
+          "is_header": true,
+          "calculations": null,
+          "children": {
+            "4e8eb5c6-6bf2-43de-bb46-494b8c09e6ff": {
+              "id": "4e8eb5c6-6bf2-43de-bb46-494b8c09e6ff",
+              "name": "Inventories",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Stock of goods held for sale or production purposes.",
+              "tags": [
+                "Stock",
+                "Warehouse Goods",
+                "Stored Items",
+                "Trading Goods",
+                "Inventory Stock"
+              ],
+              "is_header": true,
+              "calculations": null,
+              "children": {
+                "527b70cb-1b67-44d4-989d-30f9d92b470c": {
+                  "id": "527b70cb-1b67-44d4-989d-30f9d92b470c",
+                  "name": "Raw Materials",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Basic inputs purchased for manufacturing finished goods.",
+                  "tags": [
+                    "Basic Materials",
+                    "Input Stock",
+                    "Procurement Goods",
+                    "Production Materials",
+                    "Inventory Inputs"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "567412d2-1cac-4677-ac6e-623c6d4bb927": {
+                  "id": "567412d2-1cac-4677-ac6e-623c6d4bb927",
+                  "name": "Stock in process",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Partially completed goods still in the production process.",
+                  "tags": [
+                    "Work-in-Progress",
+                    "WIP",
+                    "Semi-Finished Goods",
+                    "Unfinished Goods",
+                    "Production in Process"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "74aede58-5488-4905-b987-5b447847867c": {
+                  "id": "74aede58-5488-4905-b987-5b447847867c",
+                  "name": "Finished Goods",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Completed products ready for sale to customers.",
+                  "tags": [
+                    "Completed Products",
+                    "Saleable Goods",
+                    "Manufactured Goods",
+                    "Final Stock",
+                    "Ready Inventory"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "5c5ac4fa-b919-4158-8de0-6dc14b2377c0": {
+                  "id": "5c5ac4fa-b919-4158-8de0-6dc14b2377c0",
+                  "name": "Consumable Spares",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Items used in production that are not part of the final product, such as tools or maintenance supplies.",
+                  "tags": [
+                    "Consumable Spares Ref1",
+                    "Consumable Spares Ref2",
+                    "Consumable Spares Ref3",
+                    "Consumable Spares Ref4",
+                    "Consumable Spares Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "c345a6d7-f7c8-4c3c-bce2-637a00eca4d5": {
+                  "id": "c345a6d7-f7c8-4c3c-bce2-637a00eca4d5",
+                  "name": "TOTAL INVENTORIES",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Aggregate value of all inventory including raw materials, work-in-progress, and finished goods.",
+                  "tags": [
+                    "TOTAL INVENTORIES Ref1",
+                    "TOTAL INVENTORIES Ref2",
+                    "TOTAL INVENTORIES Ref3",
+                    "TOTAL INVENTORIES Ref4",
+                    "TOTAL INVENTORIES Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": {
+                    "formula": "sum(children)",
+                    "computed_value": null
+                  },
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                }
+              },
+              "children_sequence": [
+                "527b70cb-1b67-44d4-989d-30f9d92b470c",
+                "567412d2-1cac-4677-ac6e-623c6d4bb927",
+                "74aede58-5488-4905-b987-5b447847867c",
+                "5c5ac4fa-b919-4158-8de0-6dc14b2377c0",
+                "c345a6d7-f7c8-4c3c-bce2-637a00eca4d5"
+              ],
+              "more_info": null
+            },
+            "60d54498-68b1-46e9-a075-909da044e38b": {
+              "id": "60d54498-68b1-46e9-a075-909da044e38b",
+              "name": "Trade Debtors",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Amounts receivable from customers for goods sold or services rendered on credit.",
+              "tags": [
+                "Trade Debtors Ref1",
+                "Trade Debtors Ref2",
+                "Trade Debtors Ref3",
+                "Trade Debtors Ref4",
+                "Trade Debtors Ref5"
+              ],
+              "is_header": true,
+              "calculations": null,
+              "children": {
+                "6df1f1e3-ed64-4b39-987d-a8cc0a3cffc7": {
+                  "id": "6df1f1e3-ed64-4b39-987d-a8cc0a3cffc7",
+                  "name": "Domestic Debtors over six months",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Outstanding receivables from Indian customers pending for more than six months.",
+                  "tags": [
+                    "Domestic Debtors over six months Ref1",
+                    "Domestic Debtors over six months Ref2",
+                    "Domestic Debtors over six months Ref3",
+                    "Domestic Debtors over six months Ref4",
+                    "Domestic Debtors over six months Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "c8c77409-21cc-4ed3-82b3-6edc6ea2ff5b": {
+                  "id": "c8c77409-21cc-4ed3-82b3-6edc6ea2ff5b",
+                  "name": "Domestic Debtors less than six months",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Outstanding receivables from Indian customers pending for less than six months.",
+                  "tags": [
+                    "Domestic Debtors less than six months Ref1",
+                    "Domestic Debtors less than six months Ref2",
+                    "Domestic Debtors less than six months Ref3",
+                    "Domestic Debtors less than six months Ref4",
+                    "Domestic Debtors less than six months Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "f7c3c0d1-b0ed-475e-a297-4d6e2ff36723": {
+                  "id": "f7c3c0d1-b0ed-475e-a297-4d6e2ff36723",
+                  "name": "Export Debtors over six months",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Receivables from foreign customers outstanding for more than six months.",
+                  "tags": [
+                    "Export Debtors over six months Ref1",
+                    "Export Debtors over six months Ref2",
+                    "Export Debtors over six months Ref3",
+                    "Export Debtors over six months Ref4",
+                    "Export Debtors over six months Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "af8a7fe1-31cb-4833-8281-bf305e6b6846": {
+                  "id": "af8a7fe1-31cb-4833-8281-bf305e6b6846",
+                  "name": "Export Debtors less than six months",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Receivables from foreign customers outstanding for less than six months.",
+                  "tags": [
+                    "Export Debtors less than six months Ref1",
+                    "Export Debtors less than six months Ref2",
+                    "Export Debtors less than six months Ref3",
+                    "Export Debtors less than six months Ref4",
+                    "Export Debtors less than six months Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "a5616999-4adb-4006-ad4a-60aa9bc90c92": {
+                  "id": "a5616999-4adb-4006-ad4a-60aa9bc90c92",
+                  "name": "TOTAL DEBTORS",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Total receivables due from both domestic and international customers.",
+                  "tags": [
+                    "TOTAL DEBTORS Ref1",
+                    "TOTAL DEBTORS Ref2",
+                    "TOTAL DEBTORS Ref3",
+                    "TOTAL DEBTORS Ref4",
+                    "TOTAL DEBTORS Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": {
+                    "formula": "sum(children)",
+                    "computed_value": null
+                  },
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                }
+              },
+              "children_sequence": [
+                "6df1f1e3-ed64-4b39-987d-a8cc0a3cffc7",
+                "c8c77409-21cc-4ed3-82b3-6edc6ea2ff5b",
+                "f7c3c0d1-b0ed-475e-a297-4d6e2ff36723",
+                "af8a7fe1-31cb-4833-8281-bf305e6b6846",
+                "a5616999-4adb-4006-ad4a-60aa9bc90c92"
+              ],
+              "more_info": null
+            },
+            "db87ebb6-9209-44f1-b85d-aebe7122bfef": {
+              "id": "db87ebb6-9209-44f1-b85d-aebe7122bfef",
+              "name": "Other Current Assets",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Short-term assets that are not part of cash, receivables, or inventory, but expected to be realized within a year.",
+              "tags": [
+                "Other Current Assets Ref1",
+                "Other Current Assets Ref2",
+                "Other Current Assets Ref3",
+                "Other Current Assets Ref4",
+                "Other Current Assets Ref5"
+              ],
+              "is_header": true,
+              "calculations": null,
+              "children": {
+                "599a1f96-5d75-4487-bc67-1ad7f368abaf": {
+                  "id": "599a1f96-5d75-4487-bc67-1ad7f368abaf",
+                  "name": "Cash and Bank Balance",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Cash in hand and deposits with banks available for immediate use.",
+                  "tags": [
+                    "Cash and Bank Balance Ref1",
+                    "Cash and Bank Balance Ref2",
+                    "Cash and Bank Balance Ref3",
+                    "Cash and Bank Balance Ref4",
+                    "Cash and Bank Balance Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "44d626b6-b076-4301-9312-c81ec9221153": {
+                  "id": "44d626b6-b076-4301-9312-c81ec9221153",
+                  "name": "Prepaid Expenses",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Payments made in advance for services or benefits to be received in the future.",
+                  "tags": [
+                    "Prepaid Expenses Ref1",
+                    "Prepaid Expenses Ref2",
+                    "Prepaid Expenses Ref3",
+                    "Prepaid Expenses Ref4",
+                    "Prepaid Expenses Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "dafc38f2-0475-4ddf-b8fc-c11c15f308ad": {
+                  "id": "dafc38f2-0475-4ddf-b8fc-c11c15f308ad",
+                  "name": "Advance Tax",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Income tax paid in advance by the company before the financial year ends.",
+                  "tags": [
+                    "Advance Tax Ref1",
+                    "Advance Tax Ref2",
+                    "Advance Tax Ref3",
+                    "Advance Tax Ref4",
+                    "Advance Tax Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "601216fa-b41a-4d9d-b140-182f1dbe832e": {
+                  "id": "601216fa-b41a-4d9d-b140-182f1dbe832e",
+                  "name": "Deposits with Excise and Sales Tax",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Statutory deposits made with government tax authorities.",
+                  "tags": [
+                    "Deposits with Excise and Sales Tax Ref1",
+                    "Deposits with Excise and Sales Tax Ref2",
+                    "Deposits with Excise and Sales Tax Ref3",
+                    "Deposits with Excise and Sales Tax Ref4",
+                    "Deposits with Excise and Sales Tax Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "d1f500c7-d6d4-4e74-8bee-3cd602e8f265": {
+                  "id": "d1f500c7-d6d4-4e74-8bee-3cd602e8f265",
+                  "name": "Loans and Advances",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Amounts lent or advanced to employees, subsidiaries, or others recoverable within a year.",
+                  "tags": [
+                    "Loans and Advances Ref1",
+                    "Loans and Advances Ref2",
+                    "Loans and Advances Ref3",
+                    "Loans and Advances Ref4",
+                    "Loans and Advances Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "1d2b22c0-6897-45ff-8879-08dadbac15d0": {
+                  "id": "1d2b22c0-6897-45ff-8879-08dadbac15d0",
+                  "name": "Sundry Deposits/Earnest Money Deposit (EMD)",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Deposits made for tenders, contracts, or as security, refundable upon fulfillment of conditions.",
+                  "tags": [
+                    "Sundry Deposits/Earnest Money Deposit (EMD) Ref1",
+                    "Sundry Deposits/Earnest Money Deposit (EMD) Ref2",
+                    "Sundry Deposits/Earnest Money Deposit (EMD) Ref3",
+                    "Sundry Deposits/Earnest Money Deposit (EMD) Ref4",
+                    "Sundry Deposits/Earnest Money Deposit (EMD) Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "ad1ac9ae-b8d7-4298-9c0b-8c9553dc9df1": {
+                  "id": "ad1ac9ae-b8d7-4298-9c0b-8c9553dc9df1",
+                  "name": "Balance with Govt Authorities",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Receivables or credits due from government departments or agencies.",
+                  "tags": [
+                    "Balance with Govt Authorities Ref1",
+                    "Balance with Govt Authorities Ref2",
+                    "Balance with Govt Authorities Ref3",
+                    "Balance with Govt Authorities Ref4",
+                    "Balance with Govt Authorities Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "dc42dd3b-139e-419b-94f0-9b654a2344c7": {
+                  "id": "dc42dd3b-139e-419b-94f0-9b654a2344c7",
+                  "name": "Other Advances",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Miscellaneous advances not specifically classified under other heads.",
+                  "tags": [
+                    "Other Advances Ref1",
+                    "Other Advances Ref2",
+                    "Other Advances Ref3",
+                    "Other Advances Ref4",
+                    "Other Advances Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "11af1f3e-3eb8-4af6-bb6b-9726cbfdc0bf": {
+                  "id": "11af1f3e-3eb8-4af6-bb6b-9726cbfdc0bf",
+                  "name": "Advance to Supplier",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Payments made to vendors for goods or services yet to be received.",
+                  "tags": [
+                    "Advance to Supplier Ref1",
+                    "Advance to Supplier Ref2",
+                    "Advance to Supplier Ref3",
+                    "Advance to Supplier Ref4",
+                    "Advance to Supplier Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "cec2b69b-ca47-4056-8c32-795e6bd239f0": {
+                  "id": "cec2b69b-ca47-4056-8c32-795e6bd239f0",
+                  "name": "Others",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Residual category for miscellaneous items not classified elsewhere.",
+                  "tags": [
+                    "Others Ref1",
+                    "Others Ref2",
+                    "Others Ref3",
+                    "Others Ref4",
+                    "Others Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "d6a9d320-0215-4ee3-93e3-8bef46da4efc": {
+                  "id": "d6a9d320-0215-4ee3-93e3-8bef46da4efc",
+                  "name": "Total Other Current Assets",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Cumulative total of all other current assets categories.",
+                  "tags": [
+                    "Total Other Current Assets Ref1",
+                    "Total Other Current Assets Ref2",
+                    "Total Other Current Assets Ref3",
+                    "Total Other Current Assets Ref4",
+                    "Total Other Current Assets Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": {
+                    "formula": "sum(children)",
+                    "computed_value": null
+                  },
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "7641c147-a67b-4d72-9b29-7efacaa921a6": {
+                  "id": "7641c147-a67b-4d72-9b29-7efacaa921a6",
+                  "name": "Total Current Assets (a)",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Represents the sum of all current assets, including inventories, trade debtors, cash and bank balances, and other current assets. This is the total value of assets expected to be converted to cash within a year.",
+                  "tags": [
+                    "Total Current Assets (a) Ref1",
+                    "Total Current Assets (a) Ref2",
+                    "Total Current Assets (a) Ref3",
+                    "Total Current Assets (a) Ref4",
+                    "Total Current Assets (a) Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": {
+                    "formula": "sum(children)",
+                    "computed_value": null
+                  },
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                }
+              },
+              "children_sequence": [
+                "599a1f96-5d75-4487-bc67-1ad7f368abaf",
+                "44d626b6-b076-4301-9312-c81ec9221153",
+                "dafc38f2-0475-4ddf-b8fc-c11c15f308ad",
+                "601216fa-b41a-4d9d-b140-182f1dbe832e",
+                "d1f500c7-d6d4-4e74-8bee-3cd602e8f265",
+                "1d2b22c0-6897-45ff-8879-08dadbac15d0",
+                "ad1ac9ae-b8d7-4298-9c0b-8c9553dc9df1",
+                "dc42dd3b-139e-419b-94f0-9b654a2344c7",
+                "11af1f3e-3eb8-4af6-bb6b-9726cbfdc0bf",
+                "cec2b69b-ca47-4056-8c32-795e6bd239f0",
+                "d6a9d320-0215-4ee3-93e3-8bef46da4efc",
+                "7641c147-a67b-4d72-9b29-7efacaa921a6"
+              ],
+              "more_info": null
+            }
+          },
+          "children_sequence": [
+            "4e8eb5c6-6bf2-43de-bb46-494b8c09e6ff",
+            "60d54498-68b1-46e9-a075-909da044e38b",
+            "db87ebb6-9209-44f1-b85d-aebe7122bfef"
+          ],
+          "more_info": null
+        },
+        "d7c05039-0422-4b3f-999e-236e2b5a6b42": {
+          "id": "d7c05039-0422-4b3f-999e-236e2b5a6b42",
+          "name": "FIXED ASSETS",
+          "value": null,
+          "ocr_value": null,
+          "human_input_value": null,
+          "description": "Long-term tangible assets used in business operations that are not expected to be converted into cash in the current financial year, such as land, buildings, and machinery. Also known as Property, Plant, and Equipment (PP&E).",
+          "tags": [
+            "FIXED ASSETS Ref1",
+            "FIXED ASSETS Ref2",
+            "FIXED ASSETS Ref3",
+            "FIXED ASSETS Ref4",
+            "FIXED ASSETS Ref5"
+          ],
+          "is_header": true,
+          "calculations": null,
+          "children": {
+            "541c77ba-46c1-460a-bc3c-cb1fe88d78fd": {
+              "id": "541c77ba-46c1-460a-bc3c-cb1fe88d78fd",
+              "name": "Land & Buildings",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The value of immovable property, including land and physical structures like offices or factories, owned by the company.",
+              "tags": [
+                "Land & Buildings Ref1",
+                "Land & Buildings Ref2",
+                "Land & Buildings Ref3",
+                "Land & Buildings Ref4",
+                "Land & Buildings Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "161793ed-136b-487f-baf6-33147649d8ab": {
+              "id": "161793ed-136b-487f-baf6-33147649d8ab",
+              "name": "Plant & Machinery",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The value of equipment, machinery, and apparatus used in the company's production or operational processes",
+              "tags": [
+                "Plant & Machinery Ref1",
+                "Plant & Machinery Ref2",
+                "Plant & Machinery Ref3",
+                "Plant & Machinery Ref4",
+                "Plant & Machinery Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "f1de9ecf-f7b6-4356-b78f-aa899f354dc1": {
+              "id": "f1de9ecf-f7b6-4356-b78f-aa899f354dc1",
+              "name": "Sundries",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Miscellaneous small-value fixed assets that do not fit into other specific categories, such as furniture, fixtures, and office equipment.",
+              "tags": [
+                "Sundries Ref1",
+                "Sundries Ref2",
+                "Sundries Ref3",
+                "Sundries Ref4",
+                "Sundries Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "e0d4775c-78f2-4a06-909c-b347a618000f": {
+              "id": "e0d4775c-78f2-4a06-909c-b347a618000f",
+              "name": "Gross Fixed Assets",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The total original cost or acquisition value of all fixed assets before deducting accumulated depreciation.",
+              "tags": [
+                "Gross Fixed Assets Ref1",
+                "Gross Fixed Assets Ref2",
+                "Gross Fixed Assets Ref3",
+                "Gross Fixed Assets Ref4",
+                "Gross Fixed Assets Ref5"
+              ],
+              "is_header": false,
+              "calculations": {
+                "formula": "sum(children)",
+                "computed_value": null
+              },
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "312447b4-10a8-4637-82a2-38adb49b4cf9": {
+              "id": "312447b4-10a8-4637-82a2-38adb49b4cf9",
+              "name": "Less: Depreciation to date",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The cumulative amount of depreciation charged on fixed assets from the date of acquisition up to the current date.",
+              "tags": [
+                "Less: Depreciation to date Ref1",
+                "Less: Depreciation to date Ref2",
+                "Less: Depreciation to date Ref3",
+                "Less: Depreciation to date Ref4",
+                "Less: Depreciation to date Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "5be6efdd-c4e7-4b14-803e-0bac8200e3bc": {
+              "id": "5be6efdd-c4e7-4b14-803e-0bac8200e3bc",
+              "name": "Net Fixed Assets",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The book value of fixed assets, calculated as Gross Fixed Assets minus accumulated depreciation. It represents the remaining value of assets.",
+              "tags": [
+                "Net Fixed Assets Ref1",
+                "Net Fixed Assets Ref2",
+                "Net Fixed Assets Ref3",
+                "Net Fixed Assets Ref4",
+                "Net Fixed Assets Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "a8fbc927-42f0-44a0-9fae-66ec5ce392e7": {
+              "id": "a8fbc927-42f0-44a0-9fae-66ec5ce392e7",
+              "name": "Capital Work in Progress",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Costs incurred for fixed assets that are still under construction or installation and are not yet ready for their intended use at the balance sheet date.",
+              "tags": [
+                "Capital Work in Progress Ref1",
+                "Capital Work in Progress Ref2",
+                "Capital Work in Progress Ref3",
+                "Capital Work in Progress Ref4",
+                "Capital Work in Progress Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "bcc8ae2b-af04-4d17-97ed-26765ac00565": {
+              "id": "bcc8ae2b-af04-4d17-97ed-26765ac00565",
+              "name": "Total Fixed Assets (b)",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The sum of Net Fixed Assets and Capital Work in Progress, representing the total value of long-term operational assets on the balance sheet.",
+              "tags": [
+                "Total Fixed Assets (b) Ref1",
+                "Total Fixed Assets (b) Ref2",
+                "Total Fixed Assets (b) Ref3",
+                "Total Fixed Assets (b) Ref4",
+                "Total Fixed Assets (b) Ref5"
+              ],
+              "is_header": false,
+              "calculations": {
+                "formula": "sum(children)",
+                "computed_value": null
+              },
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            }
+          },
+          "children_sequence": [
+            "541c77ba-46c1-460a-bc3c-cb1fe88d78fd",
+            "161793ed-136b-487f-baf6-33147649d8ab",
+            "f1de9ecf-f7b6-4356-b78f-aa899f354dc1",
+            "e0d4775c-78f2-4a06-909c-b347a618000f",
+            "312447b4-10a8-4637-82a2-38adb49b4cf9",
+            "5be6efdd-c4e7-4b14-803e-0bac8200e3bc",
+            "a8fbc927-42f0-44a0-9fae-66ec5ce392e7",
+            "bcc8ae2b-af04-4d17-97ed-26765ac00565"
+          ],
+          "more_info": null
+        },
+        "540a4367-482a-4da4-a50a-dbc8d68ea3ac": {
+          "id": "540a4367-482a-4da4-a50a-dbc8d68ea3ac",
+          "name": "NON-CURRENT ASSETS",
+          "value": null,
+          "ocr_value": null,
+          "human_input_value": null,
+          "description": "Assets that are not expected to be converted into cash within one year, including long-term investments, loans, and other non-liquid assets.",
+          "tags": [
+            "NON-CURRENT ASSETS Ref1",
+            "NON-CURRENT ASSETS Ref2",
+            "NON-CURRENT ASSETS Ref3",
+            "NON-CURRENT ASSETS Ref4",
+            "NON-CURRENT ASSETS Ref5"
+          ],
+          "is_header": true,
+          "calculations": null,
+          "children": {
+            "294a2827-4d80-4251-9e9c-fa5088ff13fe": {
+              "id": "294a2827-4d80-4251-9e9c-fa5088ff13fe",
+              "name": "Investments in/Loans to subsidiaries",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Long-term financial investments and loans provided to subsidiary or associate companies",
+              "tags": [
+                "Investments in/Loans to subsidiaries Ref1",
+                "Investments in/Loans to subsidiaries Ref2",
+                "Investments in/Loans to subsidiaries Ref3",
+                "Investments in/Loans to subsidiaries Ref4",
+                "Investments in/Loans to subsidiaries Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "7dbf0a27-2226-4cab-87b9-3397a9405139": {
+              "id": "7dbf0a27-2226-4cab-87b9-3397a9405139",
+              "name": "Other Non Current Assets",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Miscellaneous long-term assets that do not fall under fixed assets, investments, or other specific non-current categories",
+              "tags": [
+                "Other Non Current Assets Ref1",
+                "Other Non Current Assets Ref2",
+                "Other Non Current Assets Ref3",
+                "Other Non Current Assets Ref4",
+                "Other Non Current Assets Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "9100a792-7d14-4210-a7a3-6b4590c326fe": {
+              "id": "9100a792-7d14-4210-a7a3-6b4590c326fe",
+              "name": "Investment in other companies",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Long-term equity or debt investments held in companies that are not subsidiaries or associates",
+              "tags": [
+                "Investment in other companies Ref1",
+                "Investment in other companies Ref2",
+                "Investment in other companies Ref3",
+                "Investment in other companies Ref4",
+                "Investment in other companies Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "d8c305e0-1936-473c-a3f8-dcb83dfcc7df": {
+              "id": "d8c305e0-1936-473c-a3f8-dcb83dfcc7df",
+              "name": "Investment in Mutual Funds",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Long-term investments made in various mutual fund schemes, not intended for short-term trading",
+              "tags": [
+                "Investment in Mutual Funds Ref1",
+                "Investment in Mutual Funds Ref2",
+                "Investment in Mutual Funds Ref3",
+                "Investment in Mutual Funds Ref4",
+                "Investment in Mutual Funds Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "0734f30e-4d98-4d2a-9b25-66b71f501605": {
+              "id": "0734f30e-4d98-4d2a-9b25-66b71f501605",
+              "name": "Loans and Advances",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Amounts lent or advanced to employees, subsidiaries, or others recoverable within a year.",
+              "tags": [
+                "Loans and Advances Ref1",
+                "Loans and Advances Ref2",
+                "Loans and Advances Ref3",
+                "Loans and Advances Ref4",
+                "Loans and Advances Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "363530b9-2e41-4f7f-9960-41eff9e6f79c": {
+              "id": "363530b9-2e41-4f7f-9960-41eff9e6f79c",
+              "name": "Overdue debtors",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Trade receivables that are past their due date for a significant period and are doubtful of collection within the next operating cycle.",
+              "tags": [
+                "Overdue debtors Ref1",
+                "Overdue debtors Ref2",
+                "Overdue debtors Ref3",
+                "Overdue debtors Ref4",
+                "Overdue debtors Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "4e0aa453-c243-40c7-b3da-609817c68245": {
+              "id": "4e0aa453-c243-40c7-b3da-609817c68245",
+              "name": "Deposits with EB, etc.",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Long-term security deposits made with utility providers like electricity boards, telephone companies, or other service providers.",
+              "tags": [
+                "Deposits with EB",
+                "etc. Ref1",
+                "Deposits with EB",
+                "etc. Ref2",
+                "Deposits with EB",
+                "etc. Ref3",
+                "Deposits with EB",
+                "etc. Ref4",
+                "Deposits with EB",
+                "etc. Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "6d1f4e01-94af-45de-8864-53028ad9c6fb": {
+              "id": "6d1f4e01-94af-45de-8864-53028ad9c6fb",
+              "name": "Non-Moving Inventories",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Inventory items that have not been sold or used in production for a prolonged period and are considered obsolete or slow-moving.",
+              "tags": [
+                "Non-Moving Inventories Ref1",
+                "Non-Moving Inventories Ref2",
+                "Non-Moving Inventories Ref3",
+                "Non-Moving Inventories Ref4",
+                "Non-Moving Inventories Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "8fc655f6-dae3-4faa-907f-6e7fa4149cbb": {
+              "id": "8fc655f6-dae3-4faa-907f-6e7fa4149cbb",
+              "name": "Others",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Residual category for miscellaneous items not classified elsewhere.",
+              "tags": [
+                "Others Ref1",
+                "Others Ref2",
+                "Others Ref3",
+                "Others Ref4",
+                "Others Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "78edd408-52ea-4999-8ad1-ec4176de3b91": {
+              "id": "78edd408-52ea-4999-8ad1-ec4176de3b91",
+              "name": "Total Other Non Current Assets (c)",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The aggregate value of all non-current assets excluding fixed assets, representing long-term investments and other long-term holdings.",
+              "tags": [
+                "Total Other Non Current Assets (c) Ref1",
+                "Total Other Non Current Assets (c) Ref2",
+                "Total Other Non Current Assets (c) Ref3",
+                "Total Other Non Current Assets (c) Ref4",
+                "Total Other Non Current Assets (c) Ref5"
+              ],
+              "is_header": false,
+              "calculations": {
+                "formula": "sum(children)",
+                "computed_value": null
+              },
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "69f2535c-f8e2-4322-b176-06659793d688": {
+              "id": "69f2535c-f8e2-4322-b176-06659793d688",
+              "name": "Deferred Tax Asset (d)",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "An asset on the balance sheet that may be used to reduce any subsequent tax liability, arising from timing differences between accounting income and taxable income.",
+              "tags": [
+                "Deferred Tax Asset (d) Ref1",
+                "Deferred Tax Asset (d) Ref2",
+                "Deferred Tax Asset (d) Ref3",
+                "Deferred Tax Asset (d) Ref4",
+                "Deferred Tax Asset (d) Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            }
+          },
+          "children_sequence": [
+            "294a2827-4d80-4251-9e9c-fa5088ff13fe",
+            "7dbf0a27-2226-4cab-87b9-3397a9405139",
+            "9100a792-7d14-4210-a7a3-6b4590c326fe",
+            "d8c305e0-1936-473c-a3f8-dcb83dfcc7df",
+            "0734f30e-4d98-4d2a-9b25-66b71f501605",
+            "363530b9-2e41-4f7f-9960-41eff9e6f79c",
+            "4e0aa453-c243-40c7-b3da-609817c68245",
+            "6d1f4e01-94af-45de-8864-53028ad9c6fb",
+            "8fc655f6-dae3-4faa-907f-6e7fa4149cbb",
+            "78edd408-52ea-4999-8ad1-ec4176de3b91",
+            "69f2535c-f8e2-4322-b176-06659793d688"
+          ],
+          "more_info": null
+        },
+        "2ecf2cfc-f4c8-4bda-b847-47ded785fb74": {
+          "id": "2ecf2cfc-f4c8-4bda-b847-47ded785fb74",
+          "name": "INTANGIBLE ASSETS/MISC EXPENDITURE (e)",
+          "value": null,
+          "ocr_value": null,
+          "human_input_value": null,
+          "description": "Non-physical assets such as goodwill, patents, and trademarks, along with preliminary or deferred revenue expenditures yet to be written off to the profit and loss account.",
+          "tags": [
+            "INTANGIBLE ASSETS/MISC EXPENDITURE (e) Ref1",
+            "INTANGIBLE ASSETS/MISC EXPENDITURE (e) Ref2",
+            "INTANGIBLE ASSETS/MISC EXPENDITURE (e) Ref3",
+            "INTANGIBLE ASSETS/MISC EXPENDITURE (e) Ref4",
+            "INTANGIBLE ASSETS/MISC EXPENDITURE (e) Ref5"
+          ],
+          "is_header": false,
+          "calculations": null,
+          "children": null,
+          "children_sequence": null,
+          "more_info": null
+        },
+        "76d37656-750c-4be5-9876-bcf59375b77f": {
+          "id": "76d37656-750c-4be5-9876-bcf59375b77f",
+          "name": "TOTAL ASSETS (a+b+c+d+e)",
+          "value": null,
+          "ocr_value": null,
+          "human_input_value": null,
+          "description": "The grand total of all company assets, including current, fixed, non-current, and intangible assets. This value must equal Total Liabilities.",
+          "tags": [
+            "TOTAL ASSETS (a+b+c+d+e) Ref1",
+            "TOTAL ASSETS (a+b+c+d+e) Ref2",
+            "TOTAL ASSETS (a+b+c+d+e) Ref3",
+            "TOTAL ASSETS (a+b+c+d+e) Ref4",
+            "TOTAL ASSETS (a+b+c+d+e) Ref5"
+          ],
+          "is_header": false,
+          "calculations": {
+            "formula": "sum(children)",
+            "computed_value": null
+          },
+          "children": null,
+          "children_sequence": null,
+          "more_info": null
+        }
+      },
+      "children_sequence": [
+        "7c08172d-fc5d-4447-ae25-cd8f29a3a349",
+        "d7c05039-0422-4b3f-999e-236e2b5a6b42",
+        "540a4367-482a-4da4-a50a-dbc8d68ea3ac",
+        "2ecf2cfc-f4c8-4bda-b847-47ded785fb74",
+        "76d37656-750c-4be5-9876-bcf59375b77f"
+      ],
+      "more_info": null
+    },
+    {
+      "id": "b33b0993-e643-45d0-a86b-2e125256c003",
+      "name": "LIABILITIES",
+      "value": null,
+      "ocr_value": null,
+      "human_input_value": null,
+      "description": "Company\u2019s financial obligations payable to outsiders.",
+      "tags": [
+        "Debt",
+        "Obligations",
+        "Dues",
+        "Financial Liabilities",
+        "Payables"
+      ],
+      "is_header": true,
+      "calculations": null,
+      "children": {
+        "cc1ca848-0865-47ea-8211-7c2c6cefb0fc": {
+          "id": "cc1ca848-0865-47ea-8211-7c2c6cefb0fc",
+          "name": "CURRENT LIABILITIES",
+          "value": null,
+          "ocr_value": null,
+          "human_input_value": null,
+          "description": "Short-term obligations due within one financial year.",
+          "tags": [
+            "Short-term Liabilities",
+            "Immediate Payables",
+            "CL",
+            "Short-term Debt",
+            "Current Obligations"
+          ],
+          "is_header": true,
+          "calculations": null,
+          "children": {
+            "6a3b36cc-83e0-42d7-9e9d-da68ebc84703": {
+              "id": "6a3b36cc-83e0-42d7-9e9d-da68ebc84703",
+              "name": "Working Capital Borrowings",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Short-term loans and credit facilities obtained from banks or financial institutions to finance the day-to-day operations of the business.",
+              "tags": [
+                "Working Capital Borrowings Ref1",
+                "Working Capital Borrowings Ref2",
+                "Working Capital Borrowings Ref3",
+                "Working Capital Borrowings Ref4",
+                "Working Capital Borrowings Ref5"
+              ],
+              "is_header": true,
+              "calculations": null,
+              "children": {
+                "f3fbcb1f-b783-4c0e-bbbb-d5792c2b3a7f": {
+                  "id": "f3fbcb1f-b783-4c0e-bbbb-d5792c2b3a7f",
+                  "name": "Borrowings from Applicant Bank",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Working capital loans or facilities availed from the bank to which this financial statement is being submitted for assessment.",
+                  "tags": [
+                    "Borrowings from Applicant Bank Ref1",
+                    "Borrowings from Applicant Bank Ref2",
+                    "Borrowings from Applicant Bank Ref3",
+                    "Borrowings from Applicant Bank Ref4",
+                    "Borrowings from Applicant Bank Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "e3b12f76-a88a-4d00-8d4e-20baf92196f1": {
+                  "id": "e3b12f76-a88a-4d00-8d4e-20baf92196f1",
+                  "name": "From other Banks",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Working capital loans or facilities availed from banks and financial institutions other than the primary applicant bank.",
+                  "tags": [
+                    "From other Banks Ref1",
+                    "From other Banks Ref2",
+                    "From other Banks Ref3",
+                    "From other Banks Ref4",
+                    "From other Banks Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "cd2b1bd4-f002-486a-8b24-8ca7f61f9ba6": {
+                  "id": "cd2b1bd4-f002-486a-8b24-8ca7f61f9ba6",
+                  "name": "Commercial Paper",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "Unsecured, short-term debt instruments issued by the company to raise funds for working capital requirements",
+                  "tags": [
+                    "Commercial Paper Ref1",
+                    "Commercial Paper Ref2",
+                    "Commercial Paper Ref3",
+                    "Commercial Paper Ref4",
+                    "Commercial Paper Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": null,
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                },
+                "926b1a21-689d-466f-932c-a272acb63d2a": {
+                  "id": "926b1a21-689d-466f-932c-a272acb63d2a",
+                  "name": "Sub- total (Bank Borrowings)",
+                  "value": null,
+                  "ocr_value": null,
+                  "human_input_value": null,
+                  "description": "The sum of all short-term borrowings from various banks and financial instruments for working capital purposes.",
+                  "tags": [
+                    "Sub- total (Bank Borrowings) Ref1",
+                    "Sub- total (Bank Borrowings) Ref2",
+                    "Sub- total (Bank Borrowings) Ref3",
+                    "Sub- total (Bank Borrowings) Ref4",
+                    "Sub- total (Bank Borrowings) Ref5"
+                  ],
+                  "is_header": false,
+                  "calculations": {
+                    "formula": "sum(children)",
+                    "computed_value": null
+                  },
+                  "children": null,
+                  "children_sequence": null,
+                  "more_info": null
+                }
+              },
+              "children_sequence": [
+                "f3fbcb1f-b783-4c0e-bbbb-d5792c2b3a7f",
+                "e3b12f76-a88a-4d00-8d4e-20baf92196f1",
+                "cd2b1bd4-f002-486a-8b24-8ca7f61f9ba6",
+                "926b1a21-689d-466f-932c-a272acb63d2a"
+              ],
+              "more_info": null
+            },
+            "9d65b2c2-5d57-410f-b67c-1f5c4ab51b77": {
+              "id": "9d65b2c2-5d57-410f-b67c-1f5c4ab51b77",
+              "name": "Creditors for Purchases",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Amount owed to suppliers for goods or materials purchased on credit. Also known as Sundry Creditors or Trade Payables.",
+              "tags": [
+                "Creditors for Purchases Ref1",
+                "Creditors for Purchases Ref2",
+                "Creditors for Purchases Ref3",
+                "Creditors for Purchases Ref4",
+                "Creditors for Purchases Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "97963ff5-9cf4-486f-8356-b4e5b7a31ef1": {
+              "id": "97963ff5-9cf4-486f-8356-b4e5b7a31ef1",
+              "name": "Other Current Liabilities",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Short-term financial obligations other than bank borrowings and trade creditors, due within one year.",
+              "tags": [
+                "Other Current Liabilities Ref1",
+                "Other Current Liabilities Ref2",
+                "Other Current Liabilities Ref3",
+                "Other Current Liabilities Ref4",
+                "Other Current Liabilities Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "80f736e4-865c-41b4-aeb1-9c7042eff4b2": {
+              "id": "80f736e4-865c-41b4-aeb1-9c7042eff4b2",
+              "name": "Creditors for Expenses",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Amount owed for expenses incurred but not yet paid, such as rent, utilities, or professional fees.",
+              "tags": [
+                "Creditors for Expenses Ref1",
+                "Creditors for Expenses Ref2",
+                "Creditors for Expenses Ref3",
+                "Creditors for Expenses Ref4",
+                "Creditors for Expenses Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "18876dfa-4984-4b08-821c-e883b06ed5cb": {
+              "id": "18876dfa-4984-4b08-821c-e883b06ed5cb",
+              "name": "Provision for Tax",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "An amount set aside from profits to cover the company's estimated income tax liability for the reporting period.",
+              "tags": [
+                "Provision for Tax Ref1",
+                "Provision for Tax Ref2",
+                "Provision for Tax Ref3",
+                "Provision for Tax Ref4",
+                "Provision for Tax Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "5daab6b6-6461-4d79-a4af-bf04c76fa3e4": {
+              "id": "5daab6b6-6461-4d79-a4af-bf04c76fa3e4",
+              "name": "Long Term Debt due within one year",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The portion of long-term loans (like term loans or debentures) that is scheduled to be repaid within the next 12 months.",
+              "tags": [
+                "Long Term Debt due within one year Ref1",
+                "Long Term Debt due within one year Ref2",
+                "Long Term Debt due within one year Ref3",
+                "Long Term Debt due within one year Ref4",
+                "Long Term Debt due within one year Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "f4a64ffc-d660-4145-bed3-bbe4ea19fc5b": {
+              "id": "f4a64ffc-d660-4145-bed3-bbe4ea19fc5b",
+              "name": "Outstanding Expenses",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Expenses that have been incurred by the business during the accounting period but have not yet been paid for.",
+              "tags": [
+                "Outstanding Expenses Ref1",
+                "Outstanding Expenses Ref2",
+                "Outstanding Expenses Ref3",
+                "Outstanding Expenses Ref4",
+                "Outstanding Expenses Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "df66302b-273b-41cd-905e-a7f191e60529": {
+              "id": "df66302b-273b-41cd-905e-a7f191e60529",
+              "name": "Advances From Customer",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Payments received from customers in advance for goods or services that are yet to be delivered or rendered.",
+              "tags": [
+                "Advances From Customer Ref1",
+                "Advances From Customer Ref2",
+                "Advances From Customer Ref3",
+                "Advances From Customer Ref4",
+                "Advances From Customer Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "4b137dca-315b-4877-b296-feef52536fe7": {
+              "id": "4b137dca-315b-4877-b296-feef52536fe7",
+              "name": "Others (Curr. Liabilities / Provisions)",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "A residual category for any other short-term liabilities or provisions not classified under specific heads.",
+              "tags": [
+                "Others (Curr. Liabilities / Provisions) Ref1",
+                "Others (Curr. Liabilities / Provisions) Ref2",
+                "Others (Curr. Liabilities / Provisions) Ref3",
+                "Others (Curr. Liabilities / Provisions) Ref4",
+                "Others (Curr. Liabilities / Provisions) Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "929db481-32ab-4b2d-ae6d-0c8aa47e9f70": {
+              "id": "929db481-32ab-4b2d-ae6d-0c8aa47e9f70",
+              "name": "Sub- total (Other Borrowings)",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The sum of all current liabilities excluding bank borrowings, including creditors, provisions, and other short-term obligations.",
+              "tags": [
+                "Sub- total (Other Borrowings) Ref1",
+                "Sub- total (Other Borrowings) Ref2",
+                "Sub- total (Other Borrowings) Ref3",
+                "Sub- total (Other Borrowings) Ref4",
+                "Sub- total (Other Borrowings) Ref5"
+              ],
+              "is_header": false,
+              "calculations": {
+                "formula": "sum(children)",
+                "computed_value": null
+              },
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "b1072652-efa9-47c6-b792-b7527fe08165": {
+              "id": "b1072652-efa9-47c6-b792-b7527fe08165",
+              "name": "Creditors on Capital Account",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Amount owed to suppliers for the purchase of fixed assets or capital goods on a credit basis.",
+              "tags": [
+                "Creditors on Capital Account Ref1",
+                "Creditors on Capital Account Ref2",
+                "Creditors on Capital Account Ref3",
+                "Creditors on Capital Account Ref4",
+                "Creditors on Capital Account Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "5a6646cd-fc42-47ba-8b99-6a4229ac35fb": {
+              "id": "5a6646cd-fc42-47ba-8b99-6a4229ac35fb",
+              "name": "Total Current Liabilities (e)",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The sum of all short-term obligations of the company, including working capital borrowings and other current liabilities, due within one year.",
+              "tags": [
+                "Total Current Liabilities (e) Ref1",
+                "Total Current Liabilities (e) Ref2",
+                "Total Current Liabilities (e) Ref3",
+                "Total Current Liabilities (e) Ref4",
+                "Total Current Liabilities (e) Ref5"
+              ],
+              "is_header": false,
+              "calculations": {
+                "formula": "sum(children)",
+                "computed_value": null
+              },
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            }
+          },
+          "children_sequence": [
+            "6a3b36cc-83e0-42d7-9e9d-da68ebc84703",
+            "9d65b2c2-5d57-410f-b67c-1f5c4ab51b77",
+            "97963ff5-9cf4-486f-8356-b4e5b7a31ef1",
+            "80f736e4-865c-41b4-aeb1-9c7042eff4b2",
+            "18876dfa-4984-4b08-821c-e883b06ed5cb",
+            "5daab6b6-6461-4d79-a4af-bf04c76fa3e4",
+            "f4a64ffc-d660-4145-bed3-bbe4ea19fc5b",
+            "df66302b-273b-41cd-905e-a7f191e60529",
+            "4b137dca-315b-4877-b296-feef52536fe7",
+            "929db481-32ab-4b2d-ae6d-0c8aa47e9f70",
+            "b1072652-efa9-47c6-b792-b7527fe08165",
+            "5a6646cd-fc42-47ba-8b99-6a4229ac35fb"
+          ],
+          "more_info": null
+        },
+        "2d6411e3-b9a1-4c69-a288-05eddc845b02": {
+          "id": "2d6411e3-b9a1-4c69-a288-05eddc845b02",
+          "name": "LONG TERM LIABILITIES",
+          "value": null,
+          "ocr_value": null,
+          "human_input_value": null,
+          "description": "Financial obligations that are not due for payment within one year, such as long-term bank loans, debentures, and deferred payments.",
+          "tags": [
+            "LONG TERM LIABILITIES Ref1",
+            "LONG TERM LIABILITIES Ref2",
+            "LONG TERM LIABILITIES Ref3",
+            "LONG TERM LIABILITIES Ref4",
+            "LONG TERM LIABILITIES Ref5"
+          ],
+          "is_header": true,
+          "calculations": null,
+          "children": {
+            "50dc5f30-17c5-486d-a9ee-52a354439415": {
+              "id": "50dc5f30-17c5-486d-a9ee-52a354439415",
+              "name": "Term Loan from Yes Bank",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "A long-term loan with a specified repayment schedule and a fixed or floating interest rate, obtained from Yes Bank.",
+              "tags": [
+                "Term Loan from Yes Bank Ref1",
+                "Term Loan from Yes Bank Ref2",
+                "Term Loan from Yes Bank Ref3",
+                "Term Loan from Yes Bank Ref4",
+                "Term Loan from Yes Bank Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "79b1b078-8a76-47c3-a53a-0fa082ade854": {
+              "id": "79b1b078-8a76-47c3-a53a-0fa082ade854",
+              "name": "Term Loan from institutions/Banks",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Long-term loans availed from various banks or financial institutions, typically used for capital expenditure.",
+              "tags": [
+                "Term Loan from institutions/Banks Ref1",
+                "Term Loan from institutions/Banks Ref2",
+                "Term Loan from institutions/Banks Ref3",
+                "Term Loan from institutions/Banks Ref4",
+                "Term Loan from institutions/Banks Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "7aa8dc92-6f43-4026-8192-731a69e2d460": {
+              "id": "7aa8dc92-6f43-4026-8192-731a69e2d460",
+              "name": "Other Long Term Liabilities",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Any other long-term financial obligations not specifically classified under term loans, debentures, or other major heads",
+              "tags": [
+                "Other Long Term Liabilities Ref1",
+                "Other Long Term Liabilities Ref2",
+                "Other Long Term Liabilities Ref3",
+                "Other Long Term Liabilities Ref4",
+                "Other Long Term Liabilities Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "075c127a-b472-445a-be02-bf78c2b2fee4": {
+              "id": "075c127a-b472-445a-be02-bf78c2b2fee4",
+              "name": "Preference Shares (Repayment Due within 3 years)",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Value of redeemable preference shares that are scheduled for repayment within a three-year timeframe, often treated as a long-term liability",
+              "tags": [
+                "Preference Shares (Repayment Due within 3 years) Ref1",
+                "Preference Shares (Repayment Due within 3 years) Ref2",
+                "Preference Shares (Repayment Due within 3 years) Ref3",
+                "Preference Shares (Repayment Due within 3 years) Ref4",
+                "Preference Shares (Repayment Due within 3 years) Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "9359613d-3ad1-482b-aaa0-bd54b994fa99": {
+              "id": "9359613d-3ad1-482b-aaa0-bd54b994fa99",
+              "name": "Fixed Deposits",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Funds raised by the company from the public or other entities in the form of deposits for a fixed term.",
+              "tags": [
+                "Fixed Deposits Ref1",
+                "Fixed Deposits Ref2",
+                "Fixed Deposits Ref3",
+                "Fixed Deposits Ref4",
+                "Fixed Deposits Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "e92b480d-64fe-480d-94ce-050e5e38de30": {
+              "id": "e92b480d-64fe-480d-94ce-050e5e38de30",
+              "name": "Foreign currency loans",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Long-term loans taken from foreign entities or in a currency other than the Indian Rupee.",
+              "tags": [
+                "Foreign currency loans Ref1",
+                "Foreign currency loans Ref2",
+                "Foreign currency loans Ref3",
+                "Foreign currency loans Ref4",
+                "Foreign currency loans Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "dfe817fe-2ad5-4e15-9994-214cc590f765": {
+              "id": "dfe817fe-2ad5-4e15-9994-214cc590f765",
+              "name": "Debentures",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "A type of long-term debt instrument issued by the company to raise capital, which is not secured by any physical asset",
+              "tags": [
+                "Debentures Ref1",
+                "Debentures Ref2",
+                "Debentures Ref3",
+                "Debentures Ref4",
+                "Debentures Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "8b8b12f9-d96b-44c2-a082-41ba3dcf04df": {
+              "id": "8b8b12f9-d96b-44c2-a082-41ba3dcf04df",
+              "name": "Others (Sales Tax Deferment Loan)",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "A specific long-term liability arising from government schemes allowing the deferment of sales tax payments, treated as a loan",
+              "tags": [
+                "Others (Sales Tax Deferment Loan) Ref1",
+                "Others (Sales Tax Deferment Loan) Ref2",
+                "Others (Sales Tax Deferment Loan) Ref3",
+                "Others (Sales Tax Deferment Loan) Ref4",
+                "Others (Sales Tax Deferment Loan) Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "6572baf8-c48c-4087-b56f-e7b9a4ccce2b": {
+              "id": "6572baf8-c48c-4087-b56f-e7b9a4ccce2b",
+              "name": "Long term liability to be taken as Quasi Equity",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Unsecured loans, typically from promoters or directors, with long or flexible repayment terms, which may be treated as equity-like capital by lenders.",
+              "tags": [
+                "Long term liability to be taken as Quasi Equity Ref1",
+                "Long term liability to be taken as Quasi Equity Ref2",
+                "Long term liability to be taken as Quasi Equity Ref3",
+                "Long term liability to be taken as Quasi Equity Ref4",
+                "Long term liability to be taken as Quasi Equity Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "230fa589-da2d-4ee5-9622-739fec8beac1": {
+              "id": "230fa589-da2d-4ee5-9622-739fec8beac1",
+              "name": "Total Other Long Term Liabilities",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The aggregate of all long-term liabilities other than secured term loans from banks and institutions.",
+              "tags": [
+                "Total Other Long Term Liabilities Ref1",
+                "Total Other Long Term Liabilities Ref2",
+                "Total Other Long Term Liabilities Ref3",
+                "Total Other Long Term Liabilities Ref4",
+                "Total Other Long Term Liabilities Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "a3089c59-29e6-4092-be46-3bb36ba75e17": {
+              "id": "a3089c59-29e6-4092-be46-3bb36ba75e17",
+              "name": "Total Long Term Debt (f)",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The sum of all long-term financial obligations, including term loans, debentures, and other non-current liabilities.",
+              "tags": [
+                "Total Long Term Debt (f) Ref1",
+                "Total Long Term Debt (f) Ref2",
+                "Total Long Term Debt (f) Ref3",
+                "Total Long Term Debt (f) Ref4",
+                "Total Long Term Debt (f) Ref5"
+              ],
+              "is_header": false,
+              "calculations": {
+                "formula": "sum(children)",
+                "computed_value": null
+              },
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            }
+          },
+          "children_sequence": [
+            "50dc5f30-17c5-486d-a9ee-52a354439415",
+            "79b1b078-8a76-47c3-a53a-0fa082ade854",
+            "7aa8dc92-6f43-4026-8192-731a69e2d460",
+            "075c127a-b472-445a-be02-bf78c2b2fee4",
+            "9359613d-3ad1-482b-aaa0-bd54b994fa99",
+            "e92b480d-64fe-480d-94ce-050e5e38de30",
+            "dfe817fe-2ad5-4e15-9994-214cc590f765",
+            "8b8b12f9-d96b-44c2-a082-41ba3dcf04df",
+            "6572baf8-c48c-4087-b56f-e7b9a4ccce2b",
+            "230fa589-da2d-4ee5-9622-739fec8beac1",
+            "a3089c59-29e6-4092-be46-3bb36ba75e17"
+          ],
+          "more_info": null
+        },
+        "aac7c840-05ff-4310-b80b-eb9b95fc8010": {
+          "id": "aac7c840-05ff-4310-b80b-eb9b95fc8010",
+          "name": "CAPITAL AND SURPLUS",
+          "value": null,
+          "ocr_value": null,
+          "human_input_value": null,
+          "description": "Represents the owners' stake in the company, comprising paid-up share capital and accumulated profits or reserves. Also known as Net Worth or Shareholders' Funds.",
+          "tags": [
+            "CAPITAL AND SURPLUS Ref1",
+            "CAPITAL AND SURPLUS Ref2",
+            "CAPITAL AND SURPLUS Ref3",
+            "CAPITAL AND SURPLUS Ref4",
+            "CAPITAL AND SURPLUS Ref5"
+          ],
+          "is_header": true,
+          "calculations": null,
+          "children": {
+            "14489580-148e-449b-a223-fd572b7f8442": {
+              "id": "14489580-148e-449b-a223-fd572b7f8442",
+              "name": "Paid up Capital",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The total amount of money the company has received from shareholders in exchange for shares of its stock.",
+              "tags": [
+                "Paid up Capital Ref1",
+                "Paid up Capital Ref2",
+                "Paid up Capital Ref3",
+                "Paid up Capital Ref4",
+                "Paid up Capital Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "43745f53-e095-4753-8691-2a1cf757e6bf": {
+              "id": "43745f53-e095-4753-8691-2a1cf757e6bf",
+              "name": "Preference Share Capital",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Capital raised through the issue of preference shares, which carry a fixed dividend rate and have priority over equity shares in payment",
+              "tags": [
+                "Preference Share Capital Ref1",
+                "Preference Share Capital Ref2",
+                "Preference Share Capital Ref3",
+                "Preference Share Capital Ref4",
+                "Preference Share Capital Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "b5f969b6-5a91-47a1-b76c-7973996a1669": {
+              "id": "b5f969b6-5a91-47a1-b76c-7973996a1669",
+              "name": "Reserves and Surplus",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The accumulated profits of the company that have been retained and not distributed as dividends, including general reserves and profit and loss account balances.",
+              "tags": [
+                "Reserves and Surplus Ref1",
+                "Reserves and Surplus Ref2",
+                "Reserves and Surplus Ref3",
+                "Reserves and Surplus Ref4",
+                "Reserves and Surplus Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "39a91a30-8c22-4ebc-b068-f2c90bf081d2": {
+              "id": "39a91a30-8c22-4ebc-b068-f2c90bf081d2",
+              "name": "Revaluation Reserves",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "A reserve created when an asset is revalued to its fair market value, representing the unrealized gain on the asset",
+              "tags": [
+                "Revaluation Reserves Ref1",
+                "Revaluation Reserves Ref2",
+                "Revaluation Reserves Ref3",
+                "Revaluation Reserves Ref4",
+                "Revaluation Reserves Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "157aa074-a507-4f1d-a690-2db10002a74b": {
+              "id": "157aa074-a507-4f1d-a690-2db10002a74b",
+              "name": "Loss Bought Forward",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "Accumulated losses from previous financial years that are carried forward to be offset against future profits.",
+              "tags": [
+                "Loss Bought Forward Ref1",
+                "Loss Bought Forward Ref2",
+                "Loss Bought Forward Ref3",
+                "Loss Bought Forward Ref4",
+                "Loss Bought Forward Ref5"
+              ],
+              "is_header": false,
+              "calculations": null,
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            },
+            "74f90910-49bd-4ba9-b71f-f2c872481b33": {
+              "id": "74f90910-49bd-4ba9-b71f-f2c872481b33",
+              "name": "Capital & Reserves (g)",
+              "value": null,
+              "ocr_value": null,
+              "human_input_value": null,
+              "description": "The total shareholders' equity, calculated as the sum of paid-up capital and all reserves and surplus, less any accumulated losses.",
+              "tags": [
+                "Capital & Reserves (g) Ref1",
+                "Capital & Reserves (g) Ref2",
+                "Capital & Reserves (g) Ref3",
+                "Capital & Reserves (g) Ref4",
+                "Capital & Reserves (g) Ref5"
+              ],
+              "is_header": false,
+              "calculations": {
+                "formula": "sum(children)",
+                "computed_value": null
+              },
+              "children": null,
+              "children_sequence": null,
+              "more_info": null
+            }
+          },
+          "children_sequence": [
+            "14489580-148e-449b-a223-fd572b7f8442",
+            "43745f53-e095-4753-8691-2a1cf757e6bf",
+            "b5f969b6-5a91-47a1-b76c-7973996a1669",
+            "39a91a30-8c22-4ebc-b068-f2c90bf081d2",
+            "157aa074-a507-4f1d-a690-2db10002a74b",
+            "74f90910-49bd-4ba9-b71f-f2c872481b33"
+          ],
+          "more_info": null
+        },
+        "27fe745b-ce39-469e-bfae-f7a3acbdae85": {
+          "id": "27fe745b-ce39-469e-bfae-f7a3acbdae85",
+          "name": "Deferred Tax Liability (h)",
+          "value": null,
+          "ocr_value": null,
+          "human_input_value": null,
+          "description": "A liability on the balance sheet representing income taxes that are due in future periods, arising from timing differences between accounting income and taxable income.",
+          "tags": [
+            "Deferred Tax Liability (h) Ref1",
+            "Deferred Tax Liability (h) Ref2",
+            "Deferred Tax Liability (h) Ref3",
+            "Deferred Tax Liability (h) Ref4",
+            "Deferred Tax Liability (h) Ref5"
+          ],
+          "is_header": false,
+          "calculations": null,
+          "children": null,
+          "children_sequence": null,
+          "more_info": null
+        },
+        "8e5a78ec-8d38-4b7a-a6d5-fbb8ff9883cc": {
+          "id": "8e5a78ec-8d38-4b7a-a6d5-fbb8ff9883cc",
+          "name": "TOTAL LIABILITIES (e+f+g+h)",
+          "value": null,
+          "ocr_value": null,
+          "human_input_value": null,
+          "description": "The grand total of all company liabilities and shareholders' equity. This value must balance with Total Assets.",
+          "tags": [
+            "TOTAL LIABILITIES (e+f+g+h) Ref1",
+            "TOTAL LIABILITIES (e+f+g+h) Ref2",
+            "TOTAL LIABILITIES (e+f+g+h) Ref3",
+            "TOTAL LIABILITIES (e+f+g+h) Ref4",
+            "TOTAL LIABILITIES (e+f+g+h) Ref5"
+          ],
+          "is_header": false,
+          "calculations": {
+            "formula": "sum(children)",
+            "computed_value": null
+          },
+          "children": null,
+          "children_sequence": null,
+          "more_info": null
+        },
+        "fdba970e-0e74-4895-ab67-e762055adbe3": {
+          "id": "fdba970e-0e74-4895-ab67-e762055adbe3",
+          "name": "Contingent Liabilities",
+          "value": null,
+          "ocr_value": null,
+          "human_input_value": null,
+          "description": "Potential obligations that may arise depending on the outcome of a future event, such as pending lawsuits or guarantees. These are not recorded in the main balance sheet but disclosed in notes.",
+          "tags": [
+            "Contingent Liabilities Ref1",
+            "Contingent Liabilities Ref2",
+            "Contingent Liabilities Ref3",
+            "Contingent Liabilities Ref4",
+            "Contingent Liabilities Ref5"
+          ],
+          "is_header": false,
+          "calculations": null,
+          "children": null,
+          "children_sequence": null,
+          "more_info": null
+        }
+      },
+      "children_sequence": [
+        "cc1ca848-0865-47ea-8211-7c2c6cefb0fc",
+        "2d6411e3-b9a1-4c69-a288-05eddc845b02",
+        "aac7c840-05ff-4310-b80b-eb9b95fc8010",
+        "27fe745b-ce39-469e-bfae-f7a3acbdae85",
+        "8e5a78ec-8d38-4b7a-a6d5-fbb8ff9883cc",
+        "fdba970e-0e74-4895-ab67-e762055adbe3"
+      ],
+      "more_info": null
+    }
+  ]
+}
