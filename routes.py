@@ -109,23 +109,35 @@ def bs_mapping_w_notes(request_data: BsCompleteMappingWithNotesRequest):
         )
 
     # Upload images
-    uploaded_images = [
-        genai.upload_file(img) for img in (bs_image_paths + notes_image_paths)
-    ]
+    # uploaded_images = [
+    #     genai.upload_file(img) for img in (bs_image_paths + notes_image_paths)
+    # ]
+    user_input = (
+        prompt
+        + "\n\nAttached images:\n"
+        + "\n".join(bs_image_paths + notes_image_paths)
+    )
+    try:
+        response_text = llm_router.route(
+            user_input, (bs_image_paths + notes_image_paths)
+        )
+        print("LLM Response:", response_text)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error calling routed LLM: {e}")
 
     # Call Gemini
-    try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
-        response = model.generate_content([prompt] + uploaded_images)
-        print("Gemini Response:")
-        print(response.text)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error calling Gemini API: {e}")
+    # try:
+    #     model = genai.GenerativeModel("gemini-1.5-flash")
+    #     response = model.generate_content([prompt] + uploaded_images)
+    #     print("Gemini Response:")
+    #     print(response.text)
+    # except Exception as e:
+    #     raise HTTPException(status_code=500, detail=f"Error calling Gemini API: {e}")
 
     # Update BS JSON
     bs_json_path = os.path.join(BASE_DIR, "json", "bs.json")
     path_to_store_op = os.path.join(BASE_DIR, "results", "bs_w_notes.json")
-    update_balance_sheet(bs_json_path, response.text, path_to_store_op)
+    update_balance_sheet(bs_json_path, response_text, path_to_store_op)
 
     return {"status": "success", "message": "Balance Sheet + Notes mapping completed."}
 
@@ -196,17 +208,28 @@ def section_mapping(request: BSSectionMappingRequestModel):
             status_code=500, detail=f"Error reading section-specific prompt: {e}"
         )
 
-    # Call Gemini with detailed prompt + markdown
+    user_input = (
+        detailed_prompt + "\n\nbalance_sheet.md:\n" + "\n".join(section_markdown)
+    )
+
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
-        response = model.generate_content([detailed_prompt, section_markdown])
-        mapped_entry = response.text
-        print("Gemini Mapped Entry:")
-        print(mapped_entry)
+        response_text = llm_router.route(user_input, section_image_paths)
+        print("LLM Response:", response_text)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error calling Gemini API: {e}")
+        raise HTTPException(status_code=500, detail=f"Error calling routed LLM: {e}")
+
+    # Call Gemini with detailed prompt + markdown
+    # try:
+    #     model = genai.GenerativeModel("gemini-1.5-flash")
+    #     response = model.generate_content([detailed_prompt, section_markdown])
+    #     mapped_entry = response.text
+    #     print("Gemini Mapped Entry:")
+    #     print(mapped_entry)
+    # except Exception as e:
+    #     raise HTTPException(status_code=500, detail=f"Error calling Gemini API: {e}")
 
     # Update balance sheet JSON with section mapping
+
     json_path = os.path.join(BASE_DIR, "json", "bs.json")
     out_dir = os.path.join(os.path.dirname(json_path), "output")
     os.makedirs(out_dir, exist_ok=True)
@@ -214,10 +237,9 @@ def section_mapping(request: BSSectionMappingRequestModel):
 
     path_to_store_op = os.path.join(BASE_DIR, "result", "section_wise.json")
 
-    update_balance_sheet(out_path, response.text, path_to_store_op, update_mode=True)
+    update_balance_sheet(out_path, response_text, path_to_store_op, update_mode=True)
 
     return {
         "status": "success",
         "section": request.section.name,
-        "mapped_entry": mapped_entry,
     }
