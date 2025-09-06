@@ -171,12 +171,16 @@ def section_mapping(request: BSSectionMappingRequestModel):
     md_convert_prompt_path = os.path.join(
         BASE_DIR, "prompts", "md_convert", "v1", "md_convert.md"
     )
+    fy_1 = 2023
+    fy_2 = 2022
     with open(md_convert_prompt_path, "r") as f:
         md_convert_prompt = f.read()
     section_name = request.section.name.replace("_", " ")
     md_convert_prompt = md_convert_prompt.replace(
         '{request.section.name.replace("_", " ")}', section_name
     )
+    md_convert_prompt = md_convert_prompt.replace("{FY1}", fy_1)
+    md_convert_prompt = md_convert_prompt.replace("{FY2}", fy_2)
     # Call Ollama Gemma
     try:
         response = requests.post(
@@ -204,7 +208,10 @@ def section_mapping(request: BSSectionMappingRequestModel):
         raise HTTPException(
             status_code=500, detail=f"Error calling Ollama Gemma API: {e}"
         )
-
+    return {
+        "status": "success",
+        "section": request.section.name,
+    }
     # Load section-specific prompt
     try:
         prompt_path = os.path.join(
