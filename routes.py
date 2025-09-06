@@ -255,7 +255,7 @@ def section_mapping(request: BSSectionMappingRequestModel):
 
     path_to_store_op = os.path.join(BASE_DIR, "result", "section_wise.json")
 
-    update_balance_sheet(result_path, response_text, path_to_store_op, update_mode=True)
+    update_balance_sheet(result_path, response_text, result_path, update_mode=True)
 
     return {
         "status": "success",
