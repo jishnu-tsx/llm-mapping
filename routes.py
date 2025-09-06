@@ -171,8 +171,8 @@ def section_mapping(request: BSSectionMappingRequestModel):
     md_convert_prompt_path = os.path.join(
         BASE_DIR, "prompts", "md_convert", "v1", "md_convert.md"
     )
-    fy_1 = 2023
-    fy_2 = 2022
+    fy_1 = "2023"
+    fy_2 = "2022"
     with open(md_convert_prompt_path, "r") as f:
         md_convert_prompt = f.read()
     section_name = request.section.name.replace("_", " ")
