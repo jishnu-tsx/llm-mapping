@@ -29,10 +29,20 @@ if no breakdown found for 'Domestic debtors over six months' add all values in '
 remember: the value in the header should be equal to the sum of all the variable's values if they are present
 
 
-Output requirements:
+Output Requirements:
+Create a table with the following columns:
+variable_name – only target variable name no need for its parents name .
+mapped_value – the numeric value you extracted.
+mapping_source – the exact line item name from the balance sheet or notes that you used.Task: Balance Sheet Field Mapping
+
+Output format:
+{
+name: variable_name
+value: mapped_value
+source : mapping_source
+}
 
 a table containing the variables and the value mapped to it along with where from these markdown these values are exracted 
 
 
-give the output in the same order 
-do not create any fields in other than the given variables
+ 
