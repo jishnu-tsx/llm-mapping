@@ -176,7 +176,7 @@ def section_mapping(request: BSSectionMappingRequestModel):
         response = requests.post(
             OLLAMA_API_URL,
             json={
-                "model": "gemma3:3b",
+                "model": "gemma3:4b",
                 "prompt": md_convert_prompt,
                 "images": encoded_images,
                 "stream": False,
@@ -230,14 +230,19 @@ def section_mapping(request: BSSectionMappingRequestModel):
 
     # Update balance sheet JSON with section mapping
 
-    json_path = os.path.join(BASE_DIR, "json", "bs.json")
-    out_dir = os.path.join(os.path.dirname(json_path), "output")
-    os.makedirs(out_dir, exist_ok=True)
-    out_path = os.path.join(out_dir, "output.json")
+    result_path = (
+        os.path.join(BASE_DIR, "results", "bs_w_notes.json")
+        if os.path.exists(os.path.join(BASE_DIR, "results", "bs_w_notes.json"))
+        else os.path.join(BASE_DIR, "results", "bs.json")
+    )
+
+    # out_dir = os.path.join(os.path.dirname(json_path), "output")
+    # os.makedirs(out_dir, exist_ok=True)
+    # out_path = os.path.join(out_dir, "output.json")
 
     path_to_store_op = os.path.join(BASE_DIR, "result", "section_wise.json")
 
-    update_balance_sheet(out_path, response_text, path_to_store_op, update_mode=True)
+    update_balance_sheet(result_path, response_text, path_to_store_op, update_mode=True)
 
     return {
         "status": "success",

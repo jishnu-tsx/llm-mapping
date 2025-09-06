@@ -179,7 +179,7 @@ def update_balance_sheet(
     # out_dir = os.path.join(os.path.dirname(json_path), "output")
     # os.makedirs(out_dir, exist_ok=True)
     # out_path = os.path.join(out_dir, "output.json")
-
+    os.makedirs(output_path, exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(balance_sheet, f, indent=2, ensure_ascii=False)
 
