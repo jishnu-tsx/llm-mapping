@@ -1,2 +1,2 @@
-    Extract ONLY the section: **{request.section.name.replace("_", " ")}**
+    Extract ONLY the section: **{request.section.name.replace("_", " ")}** from the given full balance sheet image , the section can be a single or mutlitple fields and might be in a different name in the balance sheet , return the closest
     Return in clean Markdown with headings and tables preserved.

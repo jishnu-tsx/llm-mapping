@@ -1,3 +1,4 @@
+import json
 import os
 import base64
 from pathlib import Path
@@ -172,20 +173,32 @@ def section_mapping(request: BSSectionMappingRequestModel):
     )
     with open(md_convert_prompt_path, "r") as f:
         md_convert_prompt = f.read()
+    section_name = request.section.name.replace("_", " ")
+    md_convert_prompt = md_convert_prompt.replace(
+        '{request.section.name.replace("_", " ")}', section_name
+    )
+    # Call Ollama Gemma
     try:
         response = requests.post(
             OLLAMA_API_URL,
             json={
                 "model": "gemma3:4b",
-                "prompt": md_convert_prompt,
-                "images": encoded_images,
                 "stream": False,
+                "messages": [
+                    {
+                        "role": "user",
+                        "content": md_convert_prompt,
+                        "images": encoded_images,  # base64 list
+                    }
+                ],
             },
         )
         response.raise_for_status()
-        gemma_response = response.json()
-        section_markdown = gemma_response.get("response", "").strip()
-        print("Gemma Section Markdown:")
+        gemma_response = json.loads(response.text)
+        section_markdown = gemma_response.get("message", "").get("content")
+        print("Gemma Test Markdown:")
+        # print(response.json())
+
         print(section_markdown)
     except Exception as e:
         raise HTTPException(
@@ -250,64 +263,64 @@ def section_mapping(request: BSSectionMappingRequestModel):
     }
 
 
-@router.post("/test-gemma")
-def test_gemma(request: BSSectionMappingRequestModel):
-    """
-    Test route: Only call Ollama Gemma with balance sheet images.
-    Returns raw markdown output from Gemma.
-    """
-    afs_path = os.path.join(BASE_DIR, "afs", f"{request.company_id}_afs.pdf")
+# @router.post("/test-gemma")
+# def test_gemma(request: BSSectionMappingRequestModel):
+#     """
+#     Test route: Only call Ollama Gemma with balance sheet images.
+#     Returns raw markdown output from Gemma.
+#     """
+#     afs_path = os.path.join(BASE_DIR, "afs", f"{request.company_id}_afs.pdf")
 
-    # Convert BS pages to images
-    bs_image_paths = pdf_to_images(
-        afs_path, int(request.bs_start_page), int(request.bs_end_page)
-    )
+#     # Convert BS pages to images
+#     bs_image_paths = pdf_to_images(
+#         afs_path, int(request.bs_start_page), int(request.bs_end_page)
+#     )
 
-    # Encode BS images to base64
-    encoded_images = []
-    for img_path in bs_image_paths:
-        with open(img_path, "rb") as f:
-            encoded_images.append(base64.b64encode(f.read()).decode("utf-8"))
+#     # Encode BS images to base64
+#     encoded_images = []
+#     for img_path in bs_image_paths:
+#         with open(img_path, "rb") as f:
+#             encoded_images.append(base64.b64encode(f.read()).decode("utf-8"))
 
-    # Load Gemma conversion prompt
-    md_convert_prompt_path = os.path.join(
-        BASE_DIR, "prompts", "md_convert", "v1", "md_convert.md"
-    )
-    with open(md_convert_prompt_path, "r", encoding="utf-8") as f:
-        md_convert_prompt = f.read()
+#     # Load Gemma conversion prompt
+#     md_convert_prompt_path = os.path.join(
+#         BASE_DIR, "prompts", "md_convert", "v1", "md_convert.md"
+#     )
+#     with open(md_convert_prompt_path, "r", encoding="utf-8") as f:
+#         md_convert_prompt = f.read()
 
-    section_name = request.section.name.replace("_", " ")
-    md_convert_prompt = md_convert_prompt.replace(
-        '{request.section.name.replace("_", " ")}', section_name
-    )
-    # Call Ollama Gemma
-    try:
-        response = requests.post(
-            OLLAMA_API_URL,
-            json={
-                "model": "gemma3:4b",
-                "stream": False,
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": md_convert_prompt,
-                        "images": encoded_images,  # base64 list
-                    }
-                ],
-            },
-        )
-        response.raise_for_status()
-        gemma_response = response.json()
-        section_markdown = gemma_response.get("response", "").strip()
-        print("Gemma Test Markdown:")
-        print(section_markdown)
-    except Exception as e:
-        raise HTTPException(
-            status_code=500, detail=f"Error calling Ollama Gemma API: {e}"
-        )
+#     section_name = request.section.name.replace("_", " ")
+#     md_convert_prompt = md_convert_prompt.replace(
+#         '{request.section.name.replace("_", " ")}', section_name
+#     )
+#     # Call Ollama Gemma
+#     try:
+#         response = requests.post(
+#             OLLAMA_API_URL,
+#             json={
+#                 "model": "gemma3:4b",
+#                 "stream": False,
+#                 "messages": [
+#                     {
+#                         "role": "user",
+#                         "content": md_convert_prompt,
+#                         "images": encoded_images,  # base64 list
+#                     }
+#                 ],
+#             },
+#         )
+#         response.raise_for_status()
+#         gemma_response = response.json()
+#         section_markdown = gemma_response.get("response", "").strip()
+#         print("Gemma Test Markdown:")
+#         print(section_markdown)
+#     except Exception as e:
+#         raise HTTPException(
+#             status_code=500, detail=f"Error calling Ollama Gemma API: {e}"
+#         )
 
-    return {
-        "status": "success",
-        "company_id": request.company_id,
-        "section_markdown": section_markdown,
-    }
+#     return {
+#         "status": "success",
+#         "company_id": request.company_id,
+#         "section_markdown": section_markdown,
+#     }
