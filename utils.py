@@ -49,12 +49,13 @@ def clean_numeric_value(value):
 
 def parse_plaintext_output(plain_text: str):
     """
-    Parse entries from plain text Gemini-like output.
-    Each entry has keys: name, value, source.
+    Parse entries from plain text Gemini/Gemma-like output.
+    Each entry has keys: name, value_of_financial_year_1, value_of_financial_year_2, source.
     """
     pattern = re.compile(
         r'\{\s*"name"\s*:\s*"(?P<name>.*?)"\s*,\s*'
-        r'"value"\s*:\s*(?P<value>[\d\.]+)\s*,\s*'
+        r'"value_of_financial_year_1"\s*:\s*(?P<val1>-?[\d\.]+)\s*,\s*'
+        r'"value_of_financial_year_2"\s*:\s*(?P<val2>-?[\d\.]+)\s*,\s*'
         r'"source"\s*:\s*"(?P<source>.*?)"\s*\}',
         re.DOTALL,
     )
@@ -62,13 +63,18 @@ def parse_plaintext_output(plain_text: str):
     results = []
     for match in pattern.finditer(plain_text):
         name = match.group("name").strip()
-        value = match.group("value").strip()
+        val1 = clean_numeric_value(match.group("val1"))
+        val2 = clean_numeric_value(match.group("val2"))
         source = match.group("source").strip()
-        try:
-            value = float(value)
-        except ValueError:
-            pass
-        results.append({"name": name, "value": value, "source": source})
+
+        results.append(
+            {
+                "name": name,
+                "value_of_financial_year_1": val1,
+                "value_of_financial_year_2": val2,
+                "source": source,
+            }
+        )
     return results
 
 
@@ -127,12 +133,13 @@ def update_balance_sheet(
     Args:
         json_path (str): Path to the base balance sheet JSON file.
         plain_text (str): Gemini/Gemma plain text output to parse.
+        output_path (str): Path to save the updated balance sheet JSON.
         threshold (float): Similarity threshold for fuzzy matching.
         update_mode (bool):
-            - True → update only specific fields if they exist.
-            - False → create a fresh mapping (reset previous ocr_values).
+            - True → update only existing ocr_value fields if present.
+            - False → reset and freshly map everything.
     """
-    # Save Gemini/Gemma raw output for debugging
+    # Save raw Gemini/Gemma output for debugging
     gemini_op_path = os.path.join(BASE_DIR, "json", "output", "gemini_op.json")
     with open(gemini_op_path, "w", encoding="utf-8") as f:
         f.write(plain_text)
@@ -145,16 +152,17 @@ def update_balance_sheet(
     with open(json_path, "r", encoding="utf-8") as f:
         balance_sheet = json.load(f)
 
-    # If not in update mode, reset all previous OCR values
+    # Reset ocr_value if not in update mode
     if not update_mode:
         for item in balance_sheet:
-            if "ocr_value" in item:
-                item["ocr_value"] = None
+            item["ocr_value"] = None
 
     # Apply updates
     for entry in entries:
         variable = entry["name"].lower().strip()
-        mapped_value = entry["value"]
+        val1 = entry["value_of_financial_year_1"]
+        val2 = entry["value_of_financial_year_2"]
+        source = entry["source"]
 
         matched = False
         for item in balance_sheet:
@@ -162,13 +170,18 @@ def update_balance_sheet(
             if variable == item_name or get_close_matches(
                 variable, [item_name], n=1, cutoff=threshold
             ):
-                # Update field only if update_mode=True, else overwrite everything
                 if update_mode and item.get("ocr_value") is not None:
-                    print(f"[UPDATE] {entry['name']} → {mapped_value}")
+                    print(f"[UPDATE] {entry['name']} → {val1}, {val2}")
                 else:
-                    print(f"[CREATE] {entry['name']} → {mapped_value}")
+                    print(f"[CREATE] {entry['name']} → {val1}, {val2}")
 
-                item["ocr_value"] = clean_numeric_value(mapped_value)
+                # Store as dict instead of single value
+                item["ocr_value"] = {
+                    "financial_year_1": clean_numeric_value(val1),
+                    "financial_year_2": clean_numeric_value(val2),
+                    "source": source,
+                }
+
                 matched = True
                 break
 
@@ -176,9 +189,6 @@ def update_balance_sheet(
             print(f"[WARN] No match found for: {entry['name']}")
 
     # Save output
-    # out_dir = os.path.join(os.path.dirname(json_path), "output")
-    # os.makedirs(out_dir, exist_ok=True)
-    # out_path = os.path.join(out_dir, "output.json")
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(balance_sheet, f, indent=2, ensure_ascii=False)
