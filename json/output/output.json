@@ -12,27 +12,27 @@
   {
     "id": "4e8eb5c6-6bf2-43de-bb46-494b8c09e6ff",
     "name": "Inventories",
-    "ocr_value": 20795.77
+    "ocr_value": 20795.56
   },
   {
     "id": "527b70cb-1b67-44d4-989d-30f9d92b470c",
     "name": "Raw Materials",
-    "ocr_value": 8529.95
+    "ocr_value": null
   },
   {
     "id": "567412d2-1cac-4677-ac6e-623c6d4bb927",
     "name": "Stock in process",
-    "ocr_value": 7818.92
+    "ocr_value": null
   },
   {
     "id": "74aede58-5488-4905-b987-5b447847867c",
     "name": "Finished Goods",
-    "ocr_value": 543.33
+    "ocr_value": null
   },
   {
     "id": "5c5ac4fa-b919-4158-8de0-6dc14b2377c0",
     "name": "Consumable Spares",
-    "ocr_value": 2371.77
+    "ocr_value": null
   },
   {
     "id": "c345a6d7-f7c8-4c3c-bce2-637a00eca4d5",
@@ -42,7 +42,7 @@
   {
     "id": "60d54498-68b1-46e9-a075-909da044e38b",
     "name": "Trade Debtors",
-    "ocr_value": 3355.27
+    "ocr_value": 3351.72
   },
   {
     "id": "6df1f1e3-ed64-4b39-987d-a8cc0a3cffc7",
@@ -72,12 +72,12 @@
   {
     "id": "db87ebb6-9209-44f1-b85d-aebe7122bfef",
     "name": "Other Current Assets",
-    "ocr_value": null
+    "ocr_value": 2263.36
   },
   {
     "id": "599a1f96-5d75-4487-bc67-1ad7f368abaf",
     "name": "Cash and Bank Balance",
-    "ocr_value": 858.68
+    "ocr_value": 639.08
   },
   {
     "id": "44d626b6-b076-4301-9312-c81ec9221153",
@@ -97,7 +97,7 @@
   {
     "id": "d1f500c7-d6d4-4e74-8bee-3cd602e8f265",
     "name": "Current Assets-Loans and Advances",
-    "ocr_value": 32775.29
+    "ocr_value": 32779.08
   },
   {
     "id": "1d2b22c0-6897-45ff-8879-08dadbac15d0",
@@ -137,7 +137,7 @@
   {
     "id": "d7c05039-0422-4b3f-999e-236e2b5a6b42",
     "name": "FIXED ASSETS",
-    "ocr_value": 31161.38
+    "ocr_value": 84942.31
   },
   {
     "id": "541c77ba-46c1-460a-bc3c-cb1fe88d78fd",
@@ -147,12 +147,12 @@
   {
     "id": "161793ed-136b-487f-baf6-33147649d8ab",
     "name": "Plant & Machinery",
-    "ocr_value": 16445.88
+    "ocr_value": null
   },
   {
     "id": "f1de9ecf-f7b6-4356-b78f-aa899f354dc1",
     "name": "Sundries",
-    "ocr_value": 1178.67
+    "ocr_value": null
   },
   {
     "id": "e0d4775c-78f2-4a06-909c-b347a618000f",
@@ -162,7 +162,7 @@
   {
     "id": "312447b4-10a8-4637-82a2-38adb49b4cf9",
     "name": "Less: Depreciation to date",
-    "ocr_value": 960.24
+    "ocr_value": null
   },
   {
     "id": "5be6efdd-c4e7-4b14-803e-0bac8200e3bc",
@@ -187,7 +187,7 @@
   {
     "id": "294a2827-4d80-4251-9e9c-fa5088ff13fe",
     "name": "Investments in/Loans to subsidiaries",
-    "ocr_value": 2185.69
+    "ocr_value": null
   },
   {
     "id": "7dbf0a27-2226-4cab-87b9-3397a9405139",
@@ -197,7 +197,7 @@
   {
     "id": "9100a792-7d14-4210-a7a3-6b4590c326fe",
     "name": "Investment in other companies",
-    "ocr_value": null
+    "ocr_value": 44138.9
   },
   {
     "id": "d8c305e0-1936-473c-a3f8-dcb83dfcc7df",
@@ -237,12 +237,12 @@
   {
     "id": "69f2535c-f8e2-4322-b176-06659793d688",
     "name": "Deferred Tax Asset (d)",
-    "ocr_value": null
+    "ocr_value": 5480.11
   },
   {
     "id": "2ecf2cfc-f4c8-4bda-b847-47ded785fb74",
     "name": "INTANGIBLE ASSETS/MISC EXPENDITURE (e)",
-    "ocr_value": 806.63
+    "ocr_value": 1278.83
   },
   {
     "id": "76d37656-750c-4be5-9876-bcf59375b77f",
@@ -257,12 +257,12 @@
   {
     "id": "cc1ca848-0865-47ea-8211-7c2c6cefb0fc",
     "name": "CURRENT LIABILITIES",
-    "ocr_value": 34.03
+    "ocr_value": 11725.76
   },
   {
     "id": "6a3b36cc-83e0-42d7-9e9d-da68ebc84703",
     "name": "Working Capital Borrowings",
-    "ocr_value": 10031.45
+    "ocr_value": 7298.12
   },
   {
     "id": "f3fbcb1f-b783-4c0e-bbbb-d5792c2b3a7f",
@@ -287,7 +287,7 @@
   {
     "id": "9d65b2c2-5d57-410f-b67c-1f5c4ab51b77",
     "name": "Creditors for Purchases",
-    "ocr_value": 12720.55
+    "ocr_value": 18082.4
   },
   {
     "id": "97963ff5-9cf4-486f-8356-b4e5b7a31ef1",
@@ -302,7 +302,7 @@
   {
     "id": "18876dfa-4984-4b08-821c-e883b06ed5cb",
     "name": "Provision for Tax",
-    "ocr_value": null
+    "ocr_value": 1714.98
   },
   {
     "id": "5daab6b6-6461-4d79-a4af-bf04c76fa3e4",
@@ -342,7 +342,7 @@
   {
     "id": "2d6411e3-b9a1-4c69-a288-05eddc845b02",
     "name": "LONG TERM LIABILITIES",
-    "ocr_value": null
+    "ocr_value": 3878.5
   },
   {
     "id": "50dc5f30-17c5-486d-a9ee-52a354439415",
@@ -352,7 +352,7 @@
   {
     "id": "79b1b078-8a76-47c3-a53a-0fa082ade854",
     "name": "Term Loan from institutions/Banks",
-    "ocr_value": null
+    "ocr_value": 30880.89
   },
   {
     "id": "7aa8dc92-6f43-4026-8192-731a69e2d460",
@@ -407,7 +407,7 @@
   {
     "id": "14489580-148e-449b-a223-fd572b7f8442",
     "name": "Paid up Capital",
-    "ocr_value": null
+    "ocr_value": 1222.4
   },
   {
     "id": "43745f53-e095-4753-8691-2a1cf757e6bf",
@@ -417,12 +417,12 @@
   {
     "id": "b5f969b6-5a91-47a1-b76c-7973996a1669",
     "name": "Reserves and Surplus",
-    "ocr_value": null
+    "ocr_value": 133575.11
   },
   {
     "id": "39a91a30-8c22-4ebc-b068-f2c90bf081d2",
     "name": "Revaluation Reserves",
-    "ocr_value": 682.89
+    "ocr_value": null
   },
   {
     "id": "157aa074-a507-4f1d-a690-2db10002a74b",
@@ -437,7 +437,7 @@
   {
     "id": "27fe745b-ce39-469e-bfae-f7a3acbdae85",
     "name": "Deferred Tax Liability (h)",
-    "ocr_value": null
+    "ocr_value": 8684.15
   },
   {
     "id": "8e5a78ec-8d38-4b7a-a6d5-fbb8ff9883cc",

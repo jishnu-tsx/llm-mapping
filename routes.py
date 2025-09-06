@@ -2,7 +2,7 @@ import os
 import base64
 from pathlib import Path
 from typing import List
-
+from route_llm_config import LLMRouter
 import requests
 import google.generativeai as genai
 from fastapi import APIRouter, HTTPException
@@ -17,11 +17,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 router = APIRouter()
-
+llm_router = LLMRouter()
 # === Configuration ===
-API_KEY = os.getenv("gemini_api_key")
+API_KEY = os.getenv("GOOGLE_API_KEY")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-OLLAMA_API_URL = "http://localhost:11434/api/chat"
+OLLAMA_API_URL = os.getenv("OLLAMA_URL")
 
 genai.configure(api_key=API_KEY)
 
@@ -50,27 +50,26 @@ def bs_mapping(request_data: BsCompleteMappingWithNotesRequest):
 
     # Load prompt
     try:
-        prompt_path = os.path.join(BASE_DIR, "prompts", "bs.md")
+        prompt_path = os.path.join(BASE_DIR, "prompts", "balance_sheet", "v1", "bs.md")
         with open(prompt_path, "r", encoding="utf-8") as f:
             prompt = f.read()
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error reading prompt: {e}")
 
     # Upload images
-    uploaded_images = [genai.upload_file(img) for img in image_paths]
+    user_input = prompt + "\n\nAttached images:\n" + "\n".join(image_paths)
 
     # Call Gemini
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
-        response = model.generate_content([prompt] + uploaded_images)
-        print("Gemini Response:")
-        print(response.text)
+        response_text = llm_router.route(user_input, image_paths)
+        print("LLM Response:", response_text)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error calling Gemini: {e}")
+        raise HTTPException(status_code=500, detail=f"Error calling routed LLM: {e}")
 
     # Update BS JSON
     bs_json_path = os.path.join(BASE_DIR, "json", "bs.json")
-    update_balance_sheet(bs_json_path, response.text)
+    path_to_store_op = os.path.join(BASE_DIR, "results", "bs_w_notes.json")
+    update_balance_sheet(bs_json_path, response_text, path_to_store_op)
 
     return {"status": "success", "message": "Mapping done, check logs for output"}
 
@@ -99,7 +98,9 @@ def bs_mapping_w_notes(request_data: BsCompleteMappingWithNotesRequest):
 
     # Load prompt
     try:
-        prompt_path = os.path.join(BASE_DIR, "prompts", "bs_w_n.md")
+        prompt_path = os.path.join(
+            BASE_DIR, "prompts", "balance_sheet_with_notes", "v1", "bs_with_notes.md"
+        )
         with open(prompt_path, "r", encoding="utf-8") as f:
             prompt = f.read()
     except Exception as e:
@@ -123,7 +124,8 @@ def bs_mapping_w_notes(request_data: BsCompleteMappingWithNotesRequest):
 
     # Update BS JSON
     bs_json_path = os.path.join(BASE_DIR, "json", "bs.json")
-    update_balance_sheet(bs_json_path, response.text)
+    path_to_store_op = os.path.join(BASE_DIR, "results", "bs_w_notes.json")
+    update_balance_sheet(bs_json_path, response.text, path_to_store_op)
 
     return {"status": "success", "message": "Balance Sheet + Notes mapping completed."}
 
@@ -153,16 +155,17 @@ def section_mapping(request: BSSectionMappingRequestModel):
             encoded_images.append(base64.b64encode(f.read()).decode("utf-8"))
 
     # Call Ollama Gemma for section markdown
-    simple_prompt = f"""
-    Extract ONLY the section: **{request.section.name.replace("_", " ")}**
-    Return in clean Markdown with headings and tables preserved.
-    """
+    md_convert_prompt_path = os.path.join(
+        BASE_DIR, "prompts", "md_convert", "v1", "md_convert.md"
+    )
+    with open(md_convert_prompt_path, "r") as f:
+        md_convert_prompt = f.read()
     try:
         response = requests.post(
             OLLAMA_API_URL,
             json={
                 "model": "gemma3:3b",
-                "prompt": simple_prompt,
+                "prompt": md_convert_prompt,
                 "images": encoded_images,
                 "stream": False,
             },
@@ -180,7 +183,11 @@ def section_mapping(request: BSSectionMappingRequestModel):
     # Load section-specific prompt
     try:
         prompt_path = os.path.join(
-            BASE_DIR, "prompts", "section_wise", f"{request.section.name.lower()}.md"
+            BASE_DIR,
+            "prompts",
+            "section_wise",
+            "v1",
+            f"{request.section.name.lower()}.md",
         )
         with open(prompt_path, "r", encoding="utf-8") as f:
             detailed_prompt = f.read()
@@ -205,7 +212,9 @@ def section_mapping(request: BSSectionMappingRequestModel):
     os.makedirs(out_dir, exist_ok=True)
     out_path = os.path.join(out_dir, "output.json")
 
-    update_balance_sheet(out_path, response.text, update_mode=True)
+    path_to_store_op = os.path.join(BASE_DIR, "result", "section_wise.json")
+
+    update_balance_sheet(out_path, response.text, path_to_store_op, update_mode=True)
 
     return {
         "status": "success",

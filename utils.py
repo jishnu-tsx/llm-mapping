@@ -6,6 +6,8 @@ from difflib import get_close_matches
 import google.generativeai as genai
 import requests
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 def pdf_to_images(pdf_path, start_page, end_page):
     image_paths = []
@@ -115,6 +117,7 @@ def parse_plaintext_output(plain_text: str):
 def update_balance_sheet(
     json_path: str,
     plain_text: str,
+    output_path: str,
     threshold: float = 0.85,
     update_mode: bool = False,
 ):
@@ -130,7 +133,8 @@ def update_balance_sheet(
             - False → create a fresh mapping (reset previous ocr_values).
     """
     # Save Gemini/Gemma raw output for debugging
-    with open("gemini_op.json", "w", encoding="utf-8") as f:
+    gemini_op_path = os.path.join(BASE_DIR, "json", "output", "gemini_op.json")
+    with open(gemini_op_path, "w", encoding="utf-8") as f:
         f.write(plain_text)
 
     entries = parse_plaintext_output(plain_text)
@@ -172,12 +176,12 @@ def update_balance_sheet(
             print(f"[WARN] No match found for: {entry['name']}")
 
     # Save output
-    out_dir = os.path.join(os.path.dirname(json_path), "output")
-    os.makedirs(out_dir, exist_ok=True)
-    out_path = os.path.join(out_dir, "output.json")
+    # out_dir = os.path.join(os.path.dirname(json_path), "output")
+    # os.makedirs(out_dir, exist_ok=True)
+    # out_path = os.path.join(out_dir, "output.json")
 
-    with open(out_path, "w", encoding="utf-8") as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         json.dump(balance_sheet, f, indent=2, ensure_ascii=False)
 
-    print(f"[INFO] Updated balance sheet saved at {out_path}")
+    print(f"[INFO] Updated balance sheet saved at {output_path}")
     return balance_sheet

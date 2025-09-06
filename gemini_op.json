@@ -2,417 +2,103 @@
 [
   {
     "name": "Inventories",
-    "value": 20795.77,
-    "source": "Inventories",
-    "page_no": "F62"
-  },
-  {
-    "name": "Raw Materials",
-    "value": 8529.95,
-    "source": "Raw materials",
-    "page_no": "F62"
-  },
-  {
-    "name": "Stock in process",
-    "value": 7818.92,
-    "source": "Stock-in-trade",
-    "page_no": "F62"
-  },
-  {
-    "name": "Finished Goods",
-    "value": 543.33,
-    "source": "Finished and semi-finished goods",
-    "page_no": "F62"
-  },
-  {
-    "name": "Consumable Spares",
-    "value": 2371.77,
-    "source": "Stores and spares",
-    "page_no": "F62"
+    "value": 20795.56,
+    "source": "Inventories"
   },
   {
     "name": "Trade Debtors",
-    "value": 3355.27,
-    "source": "Trade receivables",
-    "page_no": "F62"
-  },
-  {
-    "name": "Domestic Debtors over six months",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Domestic Debtors less than six months",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Export Debtors over six months",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Export Debtors less than six months",
-    "value": null,
-    "source": null,
-    "page_no": null
+    "value": 3351.72,
+    "source": "Trade receivables"
   },
   {
     "name": "Other Current Assets",
-    "value": 216.35,
-    "source": "Other balances with banks",
-    "page_no": "F62"
+    "value": 2640.13,
+    "source": "Other assets"
   },
   {
     "name": "Cash and Bank Balance",
-    "value": 858.68,
-    "source": "Cash and cash equivalents",
-    "page_no": "F62"
-  },
-  {
-    "name": "Prepaid Expenses",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Advance Tax",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Deposits with Excise and Sales Tax",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Current Assets-Loans and Advances",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Sundry Deposits/Earnest Money Deposit (EMD)",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Balance with Govt Authorities",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Other Advances",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Advance to Supplier",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Others",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Land & Buildings",
-    "value": 14948.07,
-    "source": "Land including roads",
-    "page_no": "F41"
-  },
-  {
-    "name": "Plant & Machinery",
-    "value": 16445.88,
-    "source": "Plant and machinery",
-    "page_no": "F41"
-  },
-  {
-    "name": "Sundries",
-    "value": 1178.67,
-    "source": "Furniture, fixtures and office equipments",
-    "page_no": "F41"
-  },
-  {
-    "name": "Less: Depreciation to date",
-    "value": 960.24,
-    "source": "Accumulated depreciation and impairment",
-    "page_no": "F41"
+    "value": 639.08,
+    "source": "Cash and cash equivalents"
   },
   {
     "name": "Net Fixed Assets",
-    "value": 31161.38,
-    "source": "Net carrying value",
-    "page_no": "F41"
+    "value": 84942.31,
+    "source": "Property, plant and equipment"
   },
   {
     "name": "Capital Work in Progress",
     "value": 21091.92,
-    "source": "Total",
-    "page_no": "F44"
-  },
-  {
-    "name": "Investments in/Loans to subsidiaries/",
-    "value": 2185.69,
-    "source": "Investments in subsidiary companies",
-    "page_no": "F50"
+    "source": "Capital work-in-progress"
   },
   {
     "name": "Others Non Current Assets",
-    "value": null,
-    "source": null,
-    "page_no": null
+    "value": 2263.36,
+    "source": "Other assets"
   },
   {
     "name": "Investment in other companies",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Investment in Mutual Funds",
-    "value": 2050.16,
-    "source": "Investments in mutual funds",
-    "page_no": "F58"
+    "value": 44138.90,
+    "source": "Investments"
   },
   {
     "name": "Non-Current Assets-Loans and Advances",
-    "value": 32775.29,
-    "source": "Loans to related parties",
-    "page_no": "F60"
-  },
-  {
-    "name": "Overdue debtors",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Deposits with EB,etc.",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Non-Moving Inventories",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Others",
-    "value": null,
-    "source": null,
-    "page_no": null
+    "value": 32779.08,
+    "source": "Loans"
   },
   {
     "name": "Deferred Tax Asset",
-    "value": 14763.53,
-    "source": "Deferred tax assets",
-    "page_no": "F63"
+    "value": 5480.11,
+    "source": "Deferred tax assets (net)"
   },
   {
     "name": "INTANGIBLE ASSETS/MISC EXPENDITURE",
-    "value": 806.63,
-    "source": "Net carrying value",
-    "page_no": "F46"
+    "value": 1278.83,
+    "source": "Goodwill + Other intangible assets + Intangible assets under development"
   },
   {
     "name": "Working Capital Borrowings",
-    "value": 10031.45,
-    "source": "Loan from banks",
-    "page_no": "F60"
-  },
-  {
-    "name": "Borrowings from Applicant Bank",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "From other Banks",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Commercial Paper",
-    "value": 4308.07,
-    "source": "Commercial papers",
-    "page_no": "F60"
+    "value": 7298.12,
+    "source": "Borrowings (under Current Financial liabilities)"
   },
   {
     "name": "Creditors for Purchases",
-    "value": 12720.55,
-    "source": "Creditors for goods",
-    "page_no": "F63"
+    "value": 18082.40,
+    "source": "Trade payables"
   },
   {
     "name": "Other Current Liabilities",
-    "value": 34.03,
-    "source": "Others",
-    "page_no": "F63"
-  },
-  {
-    "name": "Creditiors for Expenses",
-    "value": null,
-    "source": null,
-    "page_no": null
+    "value": 11725.76,
+    "source": "Other liabilities (under Current Liabilities)"
   },
   {
     "name": "Provision for Tax",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Long Term Debt due within one year",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Outstanding Expenses",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Advances From Customer",
-    "value": 11755.76,
-    "source": "Advances received from customers",
-    "page_no": "F63"
-  },
-  {
-    "name": "Others (Curr. Liabilities / Provisions)",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Creditors on Capital Account",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Term Loan from Yes Bank",
-    "value": null,
-    "source": null,
-    "page_no": null
+    "value": 1714.98,
+    "source": "Current tax liabilities (net)"
   },
   {
     "name": "Term Loan from institutions/Banks",
-    "value": null,
-    "source": null,
-    "page_no": null
+    "value": 30880.89,
+    "source": "Borrowings (under Non-current Financial liabilities)"
   },
   {
     "name": "Other Long Term Liabilities",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Preference Shares (Repayment Due within 3 years / maturity of our facility)",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Fixed Deposits",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Foreign currency loans",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Debentures",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Others (Sales Tax Deferment Loan)",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Long term liability to be taken as Quasi Equity",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Total Other Long Term Liabilities",
-    "value": null,
-    "source": null,
-    "page_no": null
+    "value": 3878.50,
+    "source": "Other liabilities (under Non-current Liabilities)"
   },
   {
     "name": "Paid up Capital",
-    "value": 1222.44,
-    "source": "Subscribed and paid-up:",
-    "page_no": "F64"
-  },
-  {
-    "name": "Preference Share Capital",
-    "value": null,
-    "source": null,
-    "page_no": null
+    "value": 1222.40,
+    "source": "Equity share capital"
   },
   {
     "name": "Reserves and Surplus",
-    "value": 86970.96,
-    "source": "Balance at the end of the year",
-    "page_no": "F73"
-  },
-  {
-    "name": "Revaluation Reserves",
-    "value": 682.89,
-    "source": "Balance at the end of the year",
-    "page_no": "F73"
-  },
-  {
-    "name": "Loss Bought Forward",
-    "value": null,
-    "source": null,
-    "page_no": null
+    "value": 133575.11,
+    "source": "Other equity"
   },
   {
     "name": "Deferred Tax Liability",
     "value": 8684.15,
-    "source": "Deferred tax liabilities",
-    "page_no": "F63"
-  },
-  {
-    "name": "Contingent Liabilities",
-    "value": null,
-    "source": null,
-    "page_no": null
-  },
-  {
-    "name": "Other unmapped fields",
-    "value": null,
-    "source": null,
-    "page_no": null
+    "source": "Deferred tax liabilities (net)"
   }
 ]
 ```

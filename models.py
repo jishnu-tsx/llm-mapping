@@ -44,12 +44,12 @@ class BsCompleteMappingWithNotesRequest(BaseModel):
         example=12,
     )
     notes_start_page: Optional[int] = Field(
-        ...,
+        None,
         description="Starting page number of the Notes section in the PDF.",
         example=30,
     )
     notes_end_page: Optional[int] = Field(
-        ...,
+        None,
         description="Ending page number of the Notes section in the PDF.",
         example=50,
     )

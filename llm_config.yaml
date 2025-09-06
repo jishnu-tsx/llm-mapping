@@ -1,0 +1,11 @@
+# config.yaml
+api_keys:
+  google: ${GOOGLE_API_KEY}   # put your Gemini key in env var
+  openai: ${OPENAI_API_KEY}
+"api_base": "https://generativelanguage.googleapis.com/v1beta"  
+strong_model: google/gemini-2.5-flash
+weak_model: google/gemini-1.5-flash
+
+routers:
+  - name: mf   # Matrix Factorization router (can replace with bert, sw_ranking, etc.)
+    threshold: 0.1159   # adjust after calibration
