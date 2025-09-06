@@ -208,10 +208,6 @@ def section_mapping(request: BSSectionMappingRequestModel):
         raise HTTPException(
             status_code=500, detail=f"Error calling Ollama Gemma API: {e}"
         )
-    return {
-        "status": "success",
-        "section": request.section.name,
-    }
     # Load section-specific prompt
     try:
         prompt_path = os.path.join(
