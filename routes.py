@@ -282,16 +282,14 @@ def test_gemma(request: BSSectionMappingRequestModel):
             OLLAMA_API_URL,
             json={
                 "model": "gemma3:4b",
-                "raw": True,
-                "prompt": md_convert_prompt,
+                "stream": False,
                 "messages": [
-                    {"role": "system", "content": md_convert_prompt},
                     {
                         "role": "user",
-                        "content": encoded_images,
-                    },
+                        "content": md_convert_prompt,
+                        "images": encoded_images,  # base64 list
+                    }
                 ],
-                "stream": False,
             },
         )
         response.raise_for_status()
