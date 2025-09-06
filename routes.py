@@ -276,6 +276,10 @@ def test_gemma(request: BSSectionMappingRequestModel):
     with open(md_convert_prompt_path, "r", encoding="utf-8") as f:
         md_convert_prompt = f.read()
 
+    section_name = request.section.name.replace("_", " ")
+    md_convert_prompt = md_convert_prompt.replace(
+        '{request.section.name.replace("_", " ")}', section_name
+    )
     # Call Ollama Gemma
     try:
         response = requests.post(
