@@ -67,6 +67,8 @@ class BSSectionMappingRequestModel(BaseModel):
         description="Unique identifier of the company.",
         example="COMP12345",
     )
+    fy1: str = Field(..., example="2023")
+    fy2: str = Field(..., example="2022")
     file_id: str = Field(
         ...,
         description="Unique identifier of the uploaded AFS (Annual Financial Statement) file.",

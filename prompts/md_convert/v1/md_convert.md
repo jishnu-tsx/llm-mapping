@@ -8,6 +8,6 @@ from the given full balance sheet image.
 - Always include ALL columns exactly as shown in the balance sheet:
    • Item
    • Note_page_no
-   • As at 1st FY
-   • As at 2nd FY
+   • As at year *{FY1}*
+   • As at year *{FY2}*
 - Output must be in clean Markdown with headings and tables preserved.

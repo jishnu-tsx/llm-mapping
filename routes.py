@@ -167,6 +167,8 @@ def section_mapping(request: BSSectionMappingRequestModel):
         '{request.section.name.replace("_", " ")}', section_name
     )
 
+    md_convert_prompt = md_convert_prompt.replace("{FY1}", request.fy1)
+    md_convert_prompt = md_convert_prompt.replace("{FY2}", request.fy2)
     section_markdown = convert_to_md(md_convert_prompt, bs_image_paths)
 
     #! Converting notes to md : currently done in ollama.py
