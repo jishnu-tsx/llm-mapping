@@ -159,43 +159,13 @@ def section_mapping(request: BSSectionMappingRequestModel):
     # Call Ollama Gemma for section markdown
 
     md_convert_prompt_path = os.path.join(BASE_DIR, "prompts", "md_convert", "v1")
-    fy_1 = "2023"
-    fy_2 = "2022"
+
     with open(os.path.join(md_convert_prompt_path, "md_convert.md"), "r") as f:
         md_convert_prompt = f.read()
     section_name = request.section.name.replace("_", " ")
     md_convert_prompt = md_convert_prompt.replace(
         '{request.section.name.replace("_", " ")}', section_name
     )
-    md_convert_prompt = md_convert_prompt.replace("{FY1}", fy_1)
-    md_convert_prompt = md_convert_prompt.replace("{FY2}", fy_2)
-    # Call Ollama Gemma
-    # try:
-    #     response = requests.post(
-    #         OLLAMA_API_URL,
-    #         json={
-    #             "model": "gemma3:4b",
-    #             "stream": False,
-    #             "messages": [
-    #                 {
-    #                     "role": "user",
-    #                     "content": md_convert_prompt,
-    #                     "images": encoded_images,  # base64 list
-    #                 }
-    #             ],
-    #         },
-    #     )
-    #     response.raise_for_status()
-    #     gemma_response = json.loads(response.text)
-    #     section_markdown = gemma_response.get("message", "").get("content")
-    #     print("Gemma Test Markdown:")
-    #     # print(response.json())
-
-    #     print(section_markdown)
-    # except Exception as e:
-    #     raise HTTPException(
-    #         status_code=500, detail=f"Error calling Ollama Gemma API: {e}"
-    #     )
 
     section_markdown = convert_to_md(md_convert_prompt, bs_image_paths)
 
