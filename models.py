@@ -61,6 +61,7 @@ class BSSectionMappingRequestModel(BaseModel):
         description="The section of the balance sheet to extract and map.",
         example="CURRENT_ASSETS",
     )
+
     company_id: str = Field(
         ...,
         description="Unique identifier of the company.",

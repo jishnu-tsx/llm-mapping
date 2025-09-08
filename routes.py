@@ -12,12 +12,13 @@ from models import (
     BsCompleteMappingWithNotesRequest,
     BSSectionMappingRequestModel,
 )
-from utils import pdf_to_images, update_balance_sheet, map_ocr_to_balance_sheet
+from utils import pdf_to_images, update_balance_sheet, convert_to_md
 from dotenv import load_dotenv
-from gen_ai_router import GenAIRouter
+from genai_router.router import GenAIRouter
 
 
-gen_ai_router = GenAIRouter(provider="gemini", model="gemini-1.5-flash")
+gen_ai_router = GenAIRouter(provider="openai", model="gpt-4.1-mini")
+# gen_ai_router = GenAIRouter(provider="gemini", model="gemini-1.5-flash")
 
 
 load_dotenv()
@@ -114,33 +115,14 @@ def bs_mapping_w_notes(request_data: BsCompleteMappingWithNotesRequest):
             status_code=500, detail=f"Error reading BS+Notes prompt: {e}"
         )
 
-    # Upload images
-    # uploaded_images = [
-    #     genai.upload_file(img) for img in (bs_image_paths + notes_image_paths)
-    # ]
-    user_input = (
-        prompt
-        + "\n\nAttached images:\n"
-        + "\n".join(bs_image_paths + notes_image_paths)
-    )
     try:
-        response_text = llm_router.route(
-            user_input, (bs_image_paths + notes_image_paths)
+        response_text = gen_ai_router.route(
+            prompt, (bs_image_paths + notes_image_paths)
         )
         print("LLM Response:", response_text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error calling routed LLM: {e}")
 
-    # Call Gemini
-    # try:
-    #     model = genai.GenerativeModel("gemini-1.5-flash")
-    #     response = model.generate_content([prompt] + uploaded_images)
-    #     print("Gemini Response:")
-    #     print(response.text)
-    # except Exception as e:
-    #     raise HTTPException(status_code=500, detail=f"Error calling Gemini API: {e}")
-
-    # Update BS JSON
     bs_json_path = os.path.join(BASE_DIR, "json", "bs.json")
     path_to_store_op = os.path.join(BASE_DIR, "results", "bs_w_notes.json")
     update_balance_sheet(bs_json_path, response_text, path_to_store_op)
@@ -154,31 +136,32 @@ def section_mapping(request: BSSectionMappingRequestModel):
     Perform section-wise Balance Sheet mapping.
     Extract section markdown via Ollama Gemma, then refine with Gemini.
     """
+
+    _gen_ai_router = GenAIRouter(provider="local", model="deepseek-r1:8b")
     afs_path = os.path.join(BASE_DIR, "afs", f"{request.company_id}_afs.pdf")
 
     # Convert note pages + BS pages to images
-    section_image_paths = []
+    notes_image_paths = []
     for page_no in request.note_page_nos:
         page_no = int(page_no)
-        section_image_paths.extend(pdf_to_images(afs_path, page_no, page_no))
+        notes_image_paths.extend(pdf_to_images(afs_path, page_no, page_no))
 
     bs_image_paths = pdf_to_images(
         afs_path, int(request.bs_start_page), int(request.bs_end_page)
     )
 
     # Encode BS images to base64
-    encoded_images = []
-    for img_path in bs_image_paths:
-        with open(img_path, "rb") as f:
-            encoded_images.append(base64.b64encode(f.read()).decode("utf-8"))
+    # encoded_images = []
+    # for img_path in bs_image_paths:
+    #     with open(img_path, "rb") as f:
+    #         encoded_images.append(base64.b64encode(f.read()).decode("utf-8"))
 
     # Call Ollama Gemma for section markdown
-    md_convert_prompt_path = os.path.join(
-        BASE_DIR, "prompts", "md_convert", "v1", "md_convert.md"
-    )
+
+    md_convert_prompt_path = os.path.join(BASE_DIR, "prompts", "md_convert", "v1")
     fy_1 = "2023"
     fy_2 = "2022"
-    with open(md_convert_prompt_path, "r") as f:
+    with open(os.path.join(md_convert_prompt_path, "md_convert.md"), "r") as f:
         md_convert_prompt = f.read()
     section_name = request.section.name.replace("_", " ")
     md_convert_prompt = md_convert_prompt.replace(
@@ -187,32 +170,44 @@ def section_mapping(request: BSSectionMappingRequestModel):
     md_convert_prompt = md_convert_prompt.replace("{FY1}", fy_1)
     md_convert_prompt = md_convert_prompt.replace("{FY2}", fy_2)
     # Call Ollama Gemma
-    try:
-        response = requests.post(
-            OLLAMA_API_URL,
-            json={
-                "model": "gemma3:4b",
-                "stream": False,
-                "messages": [
-                    {
-                        "role": "user",
-                        "content": md_convert_prompt,
-                        "images": encoded_images,  # base64 list
-                    }
-                ],
-            },
-        )
-        response.raise_for_status()
-        gemma_response = json.loads(response.text)
-        section_markdown = gemma_response.get("message", "").get("content")
-        print("Gemma Test Markdown:")
-        # print(response.json())
+    # try:
+    #     response = requests.post(
+    #         OLLAMA_API_URL,
+    #         json={
+    #             "model": "gemma3:4b",
+    #             "stream": False,
+    #             "messages": [
+    #                 {
+    #                     "role": "user",
+    #                     "content": md_convert_prompt,
+    #                     "images": encoded_images,  # base64 list
+    #                 }
+    #             ],
+    #         },
+    #     )
+    #     response.raise_for_status()
+    #     gemma_response = json.loads(response.text)
+    #     section_markdown = gemma_response.get("message", "").get("content")
+    #     print("Gemma Test Markdown:")
+    #     # print(response.json())
 
-        print(section_markdown)
-    except Exception as e:
-        raise HTTPException(
-            status_code=500, detail=f"Error calling Ollama Gemma API: {e}"
-        )
+    #     print(section_markdown)
+    # except Exception as e:
+    #     raise HTTPException(
+    #         status_code=500, detail=f"Error calling Ollama Gemma API: {e}"
+    #     )
+
+    section_markdown = convert_to_md(md_convert_prompt, bs_image_paths)
+
+    #! Converting notes to md : currently done in ollama.py
+    # with open(os.path.join(md_convert_prompt_path, "notes_image_convert.md"), "r") as f:
+    #     notes_convert_prompt = f.read()
+    # notes_convert_prompt = notes_convert_prompt.replace("{FY1}", fy_1)
+    # notes_convert_prompt = notes_convert_prompt.replace("{FY2}", fy_2)
+    # notes_md = ""
+    # for note_image_path in notes_image_paths:
+    #     notes_md = convert_to_md(notes_convert_prompt, note_image_path)
+    #     notes_md = notes_md + notes_md
     # Load section-specific prompt
     try:
         prompt_path = os.path.join(
@@ -234,22 +229,10 @@ def section_mapping(request: BSSectionMappingRequestModel):
     )
 
     try:
-        response_text = llm_router.route(user_input, section_image_paths)
+        response_text = _gen_ai_router.route(user_input, notes_image_paths)
         print("LLM Response:", response_text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error calling routed LLM: {e}")
-
-    # Call Gemini with detailed prompt + markdown
-    # try:
-    #     model = genai.GenerativeModel("gemini-1.5-flash")
-    #     response = model.generate_content([detailed_prompt, section_markdown])
-    #     mapped_entry = response.text
-    #     print("Gemini Mapped Entry:")
-    #     print(mapped_entry)
-    # except Exception as e:
-    #     raise HTTPException(status_code=500, detail=f"Error calling Gemini API: {e}")
-
-    # Update balance sheet JSON with section mapping
 
     result_path = (
         os.path.join(BASE_DIR, "results", "bs_w_notes.json")
@@ -257,78 +240,9 @@ def section_mapping(request: BSSectionMappingRequestModel):
         else os.path.join(BASE_DIR, "results", "bs.json")
     )
 
-    # out_dir = os.path.join(os.path.dirname(json_path), "output")
-    # os.makedirs(out_dir, exist_ok=True)
-    # out_path = os.path.join(out_dir, "output.json")
-
-    path_to_store_op = os.path.join(BASE_DIR, "result", "section_wise.json")
-
     update_balance_sheet(result_path, response_text, result_path, update_mode=True)
 
     return {
         "status": "success",
         "section": request.section.name,
     }
-
-
-# @router.post("/test-gemma")
-# def test_gemma(request: BSSectionMappingRequestModel):
-#     """
-#     Test route: Only call Ollama Gemma with balance sheet images.
-#     Returns raw markdown output from Gemma.
-#     """
-#     afs_path = os.path.join(BASE_DIR, "afs", f"{request.company_id}_afs.pdf")
-
-#     # Convert BS pages to images
-#     bs_image_paths = pdf_to_images(
-#         afs_path, int(request.bs_start_page), int(request.bs_end_page)
-#     )
-
-#     # Encode BS images to base64
-#     encoded_images = []
-#     for img_path in bs_image_paths:
-#         with open(img_path, "rb") as f:
-#             encoded_images.append(base64.b64encode(f.read()).decode("utf-8"))
-
-#     # Load Gemma conversion prompt
-#     md_convert_prompt_path = os.path.join(
-#         BASE_DIR, "prompts", "md_convert", "v1", "md_convert.md"
-#     )
-#     with open(md_convert_prompt_path, "r", encoding="utf-8") as f:
-#         md_convert_prompt = f.read()
-
-#     section_name = request.section.name.replace("_", " ")
-#     md_convert_prompt = md_convert_prompt.replace(
-#         '{request.section.name.replace("_", " ")}', section_name
-#     )
-#     # Call Ollama Gemma
-#     try:
-#         response = requests.post(
-#             OLLAMA_API_URL,
-#             json={
-#                 "model": "gemma3:4b",
-#                 "stream": False,
-#                 "messages": [
-#                     {
-#                         "role": "user",
-#                         "content": md_convert_prompt,
-#                         "images": encoded_images,  # base64 list
-#                     }
-#                 ],
-#             },
-#         )
-#         response.raise_for_status()
-#         gemma_response = response.json()
-#         section_markdown = gemma_response.get("response", "").strip()
-#         print("Gemma Test Markdown:")
-#         print(section_markdown)
-#     except Exception as e:
-#         raise HTTPException(
-#             status_code=500, detail=f"Error calling Ollama Gemma API: {e}"
-#         )
-
-#     return {
-#         "status": "success",
-#         "company_id": request.company_id,
-#         "section_markdown": section_markdown,
-#     }

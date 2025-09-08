@@ -109,21 +109,17 @@ Contingent Liabilities
 
 
 Output Requirements:
-
 Create a table with the following columns:
+variable_name – only target variable name no need for its parents name .
+mapped_value – the numeric value you extracted.
+mapping_source – the exact line item name from the balance sheet or notes that you used.Task: Balance Sheet Field Mapping
 
-variable_name – only the target variable name (no parent name).
-
-mapped_value – the numeric value extracted.
-
-mapping_source – the exact line item name from the balance sheet or notes used.
-
-page_no – the page number where the mapping was found (from the image filename).
 
 Output format:
 {
-  "name": "variable_name",
-  "value": mapped_value,
-  "source": "mapping_source",
-  "page_no": "page_number"
+"name": variable_name,
+"value_of_financial_year_1": mapped_value_of_financial_year_1,
+"value_of_financial_year_2": mapped_value_of_financial_year_2,
+"source" : mapping_source
 }
+

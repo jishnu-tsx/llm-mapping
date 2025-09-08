@@ -1,5 +1,7 @@
+import base64
 import copy
 import os
+from fastapi import HTTPException
 import fitz  # PyMuPDF
 import re
 import json
@@ -77,48 +79,6 @@ def parse_plaintext_output(plain_text: str):
             }
         )
     return results
-
-
-# def update_balance_sheet(json_path: str, plain_text: str, threshold: float = 0.85):
-#     """Update balance sheet JSON with OCR values from plain text output."""
-#     with open("gemini_op.json", "w") as f:
-#         f.write(plain_text)
-#     entries = parse_plaintext_output(plain_text)
-#     if not entries:
-#         raise ValueError("No valid entries found in the plain text output")
-
-#     with open(json_path, "r", encoding="utf-8") as f:
-#         balance_sheet = json.load(f)
-
-#     for entry in entries:
-#         variable = entry["name"].lower().strip()
-
-#         mapped_value = entry["value"]
-
-#         matched = False
-#         for item in balance_sheet:
-#             item_name = item.get("name", "").lower().strip()
-#             if variable == item_name or get_close_matches(
-#                 variable, [item_name], n=1, cutoff=threshold
-#             ):
-#                 item["ocr_value"] = clean_numeric_value(mapped_value)
-#                 print(f"[SUCCESS] Mapped {entry['name']} → {mapped_value}")
-#                 matched = True
-#                 break
-
-#         if not matched:
-#             print(f"[WARN] No match found for: {entry['name']}")
-
-#     # Save output
-#     out_dir = os.path.join(os.path.dirname(json_path), "output")
-#     os.makedirs(out_dir, exist_ok=True)
-#     out_path = os.path.join(out_dir, "output.json")
-
-#     with open(out_path, "w", encoding="utf-8") as f:
-#         json.dump(balance_sheet, f, indent=2, ensure_ascii=False)
-
-#     print(f"[INFO] Updated balance sheet saved at {out_path}")
-#     return balance_sheet
 
 
 def update_balance_sheet(
@@ -296,3 +256,48 @@ def process_and_save(
         json.dump(updated, f, indent=2, ensure_ascii=False)
 
     return output_path
+
+
+OLLAMA_API_URL = os.getenv("OLLAMA_URL")
+
+
+def convert_to_md(prompt: str, image_path: str) -> str:
+    """
+    Send a prompt + image to Ollama Gemma model and return the markdown response.
+
+    Args:
+        prompt (str): The text prompt.
+        image_path (str): Path to the image file.
+
+    Returns:
+        str: Markdown response content.
+    """
+    try:
+        # Encode image to base64
+        with open(image_path, "rb") as f:
+            encoded_image = base64.b64encode(f.read()).decode("utf-8")
+
+        payload = {
+            "model": "gemma3:4b",
+            "stream": False,
+            "messages": [
+                {
+                    "role": "user",
+                    "content": prompt,
+                    "images": [encoded_image],  # list of one image
+                }
+            ],
+        }
+
+        response = requests.post(OLLAMA_API_URL, json=payload)
+        response.raise_for_status()
+
+        gemma_response = response.json()
+        section_markdown = gemma_response.get("message", {}).get("content", "")
+
+        return section_markdown
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500, detail=f"Error calling Ollama Gemma API: {e}"
+        )

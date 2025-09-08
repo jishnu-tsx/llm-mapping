@@ -66,12 +66,6 @@ class GenAIRouter:
             elif self.provider == "local":
                 try:
                     # Encode images (assuming they are file paths here)
-                    encoded_images = []
-                    for img_path in images:
-                        with open(img_path, "rb") as f:
-                            encoded_images.append(
-                                base64.b64encode(f.read()).decode("utf-8")
-                            )
 
                     data = {
                         "model": self.model,  # e.g. "gemma3:4b"
@@ -79,8 +73,7 @@ class GenAIRouter:
                         "messages": [
                             {
                                 "role": "user",
-                                "content": prompt,
-                                "images": encoded_images,  # base64 list
+                                "content": prompt,  # base64 list
                             }
                         ],
                     }
