@@ -201,7 +201,7 @@ def section_mapping(request: BSSectionMappingRequestModel):
     )
 
     try:
-        response_text = gen_ai_router.route(user_input, notes_image_paths)
+        response_text = _gen_ai_router.route(user_input, notes_image_paths)
         print("LLM Response:", response_text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error calling routed LLM: {e}")
