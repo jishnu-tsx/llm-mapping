@@ -1,6 +1,7 @@
 import base64
 import copy
 import os
+from typing import List
 from fastapi import HTTPException
 import fitz  # PyMuPDF
 import re
@@ -261,7 +262,7 @@ def process_and_save(
 OLLAMA_API_URL = os.getenv("OLLAMA_URL")
 
 
-def convert_to_md(prompt: str, image_path: str) -> str:
+def convert_to_md(prompt: str, image_path: List[str]) -> str:
     """
     Send a prompt + image to Ollama Gemma model and return the markdown response.
 
@@ -274,8 +275,10 @@ def convert_to_md(prompt: str, image_path: str) -> str:
     """
     try:
         # Encode image to base64
-        with open(image_path, "rb") as f:
-            encoded_image = base64.b64encode(f.read()).decode("utf-8")
+        encoded_images = []
+        for image in image_path:
+            with open(image, "rb") as f:
+                encoded_images.append(base64.b64encode(f.read()).decode("utf-8"))
 
         payload = {
             "model": "gemma3:4b",
@@ -284,7 +287,7 @@ def convert_to_md(prompt: str, image_path: str) -> str:
                 {
                     "role": "user",
                     "content": prompt,
-                    "images": [encoded_image],  # list of one image
+                    "images": encoded_images,  # list of one image
                 }
             ],
         }
