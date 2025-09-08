@@ -298,8 +298,8 @@ def convert_to_md(prompt: str, image_path: List[str]) -> str:
         gemma_response = response.json()
         section_markdown = gemma_response.get("message", {}).get("content", "")
 
+        print(f"Response from geamma {section_markdown}")
         return section_markdown
-
     except Exception as e:
         raise HTTPException(
             status_code=500, detail=f"Error calling Ollama Gemma API: {e}"
