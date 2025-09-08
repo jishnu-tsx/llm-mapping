@@ -25,7 +25,7 @@ class OllamaProvider(BaseProvider):
             notes_convert_prompt = f.read()
         # notes_convert_prompt = notes_convert_prompt.replace("{FY1}", fy_1)
         # notes_convert_prompt = notes_convert_prompt.replace("{FY2}", )
-        notes_md = convert_to_md(notes_convert_prompt, image_path)
+        notes_md = convert_to_md(notes_convert_prompt, [image_path])
 
         return notes_md
 

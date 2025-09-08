@@ -45,8 +45,137 @@ def pdf_to_images(pdf_path, start_page, end_page):
     return image_paths
 
 
+# def clean_numeric_value(value):
+#     """Convert string numbers to float if possible."""
+#     if isinstance(value, str):
+#         value = value.strip().replace(",", "")
+#         try:
+#             return float(value)
+#         except ValueError:
+#             return value
+#     return value
+
+
+# def parse_plaintext_output(plain_text: str):
+#     """
+#     Parse entries from plain text Gemini/Gemma-like output.
+#     Each entry has keys: name, value_of_financial_year_1, value_of_financial_year_2, source.
+#     """
+#     pattern = re.compile(
+#         r'\{\s*"name"\s*:\s*"(?P<name>.*?)"\s*,\s*'
+#         r'"value_of_financial_year_1"\s*:\s*(?P<val1>-?[\d\.]+)\s*,\s*'
+#         r'"value_of_financial_year_2"\s*:\s*(?P<val2>-?[\d\.]+)\s*,\s*'
+#         r'"source"\s*:\s*"(?P<source>.*?)"\s*\}',
+#         re.DOTALL,
+#     )
+
+#     results = []
+#     for match in pattern.finditer(plain_text):
+#         name = match.group("name").strip()
+#         val1 = clean_numeric_value(match.group("val1"))
+#         val2 = clean_numeric_value(match.group("val2"))
+#         source = match.group("source").strip()
+
+#         results.append(
+#             {
+#                 "name": name,
+#                 "value_of_financial_year_1": val1,
+#                 "value_of_financial_year_2": val2,
+#                 "source": source,
+#             }
+#         )
+#     return results
+
+
+# def update_balance_sheet(
+#     json_path: str,
+#     plain_text: str,
+#     output_path: str,
+#     threshold: float = 0.85,
+#     update_mode: bool = False,
+# ):
+#     """
+#     Update balance sheet JSON with OCR values from plain text output.
+
+#     Args:
+#         json_path (str): Path to the base balance sheet JSON file.
+#         plain_text (str): Gemini/Gemma plain text output to parse.
+#         output_path (str): Path to save the updated balance sheet JSON.
+#         threshold (float): Similarity threshold for fuzzy matching.
+#         update_mode (bool):
+#             - True → update only existing ocr_value fields if present.
+#             - False → reset and freshly map everything.
+#     """
+#     # Save raw Gemini/Gemma output for debugging
+#     gemini_op_path = os.path.join(BASE_DIR, "json", "output", "gemini_op.json")
+#     with open(gemini_op_path, "w", encoding="utf-8") as f:
+#         f.write(plain_text)
+
+#     entries = parse_plaintext_output(plain_text)
+#     if not entries:
+#         raise ValueError("No valid entries found in the plain text output")
+
+#     # Load existing JSON
+#     with open(json_path, "r", encoding="utf-8") as f:
+#         balance_sheet = json.load(f)
+
+#     # Reset ocr_value if not in update mode
+#     if not update_mode:
+#         for item in balance_sheet:
+#             item["ocr_value"] = None
+
+#     # Apply updates
+#     for entry in entries:
+#         variable = entry["name"].lower().strip()
+#         val1 = entry["value_of_financial_year_1"]
+#         val2 = entry["value_of_financial_year_2"]
+#         source = entry["source"]
+
+#         matched = False
+#         for item in balance_sheet:
+#             item_name = item.get("name", "").lower().strip()
+#             if variable == item_name or get_close_matches(
+#                 variable, [item_name], n=1, cutoff=threshold
+#             ):
+#                 if update_mode and item.get("ocr_value") is not None:
+#                     print(f"[UPDATE] {entry['name']} → {val1}, {val2}")
+#                 else:
+#                     print(f"[CREATE] {entry['name']} → {val1}, {val2}")
+
+#                 # Store as dict instead of single value
+#                 item["ocr_value"] = {
+#                     "financial_year_1": clean_numeric_value(val1),
+#                     "financial_year_2": clean_numeric_value(val2),
+#                     "source": source,
+#                 }
+
+#                 matched = True
+#                 break
+
+#         if not matched:
+#             print(f"[WARN] No match found for: {entry['name']}")
+
+#     # Save output
+#     os.makedirs(os.path.dirname(output_path), exist_ok=True)
+#     with open(output_path, "w", encoding="utf-8") as f:
+#         json.dump(balance_sheet, f, indent=2, ensure_ascii=False)
+
+#     print(f"[INFO] Updated balance sheet saved at {output_path}")
+
+#     bs_og_format_path = os.path.join(BASE_DIR, "json", "balance_sheet.json")
+#     # with open(bs_og_format_path, "w") as f:
+#     #     bs_og_format = f.read()
+#     res = process_and_save(
+#         bs_og_format_path, balance_sheet, os.path.dirname(output_path)
+#     )
+#     print(f"Successfully converted and saved at {res}")
+#     return balance_sheet
+
+
 def clean_numeric_value(value):
-    """Convert string numbers to float if possible."""
+    """Convert string numbers to float if possible, handle null/N/A."""
+    if value in [None, "null", "Null", "NULL", "N/A", "-", ""]:
+        return None
     if isinstance(value, str):
         value = value.strip().replace(",", "")
         try:
@@ -56,34 +185,71 @@ def clean_numeric_value(value):
     return value
 
 
+def extract_json_block(plain_text: str):
+    """
+    Extract the first valid JSON-like array/object from messy LLM output.
+    Handles ```json fences, or bare { ... } / [ ... ] blocks.
+    """
+    # Case 1: inside fenced ```json ... ```
+    fenced = re.findall(r"```json(.*?)```", plain_text, flags=re.DOTALL | re.IGNORECASE)
+    if fenced:
+        return fenced[0].strip()
+
+    # Case 2: first array/object in the text
+    match = re.search(r"(\{.*\}|\[.*\])", plain_text, flags=re.DOTALL)
+    if match:
+        return match.group(1).strip()
+
+    return None
+
+
+def normalize_json_like(text: str) -> str:
+    """
+    Normalize Python/LLM-style JSON into strict JSON:
+    - Replace None → null
+    - Replace single quotes → double quotes
+    """
+    text = re.sub(r"\bNone\b", "null", text)
+    text = text.replace("'", '"')
+    return text
+
+
 def parse_plaintext_output(plain_text: str):
     """
-    Parse entries from plain text Gemini/Gemma-like output.
-    Each entry has keys: name, value_of_financial_year_1, value_of_financial_year_2, source.
+    Parse entries from messy Gemini/Gemma-like output.
+    Handles extra tables/thinking text before/after JSON and Python-style None.
     """
-    pattern = re.compile(
-        r'\{\s*"name"\s*:\s*"(?P<name>.*?)"\s*,\s*'
-        r'"value_of_financial_year_1"\s*:\s*(?P<val1>-?[\d\.]+)\s*,\s*'
-        r'"value_of_financial_year_2"\s*:\s*(?P<val2>-?[\d\.]+)\s*,\s*'
-        r'"source"\s*:\s*"(?P<source>.*?)"\s*\}',
-        re.DOTALL,
-    )
+    json_block = extract_json_block(plain_text)
+    if not json_block:
+        raise ValueError("No JSON block found in the plain text output")
+
+    # normalize before parsing
+    json_block = normalize_json_like(json_block)
+
+    try:
+        data = json.loads(json_block)
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Could not parse JSON block: {e}")
+
+    # Normalize into list
+    if isinstance(data, dict):
+        data = [data]
 
     results = []
-    for match in pattern.finditer(plain_text):
-        name = match.group("name").strip()
-        val1 = clean_numeric_value(match.group("val1"))
-        val2 = clean_numeric_value(match.group("val2"))
-        source = match.group("source").strip()
-
+    for entry in data:
         results.append(
             {
-                "name": name,
-                "value_of_financial_year_1": val1,
-                "value_of_financial_year_2": val2,
-                "source": source,
+                "name": entry.get("name", "").strip(),
+                "value_of_financial_year_1": clean_numeric_value(
+                    entry.get("value_of_financial_year_1")
+                ),
+                "value_of_financial_year_2": clean_numeric_value(
+                    entry.get("value_of_financial_year_2")
+                ),
+                "source": (entry.get("source") or "").strip(),
             }
         )
+
     return results
 
 
