@@ -13,6 +13,11 @@ import requests
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
+def convert_image_b64(image_path: str) -> str:
+    with open(image_path, "rb") as f:
+        return base64.b64encode(f.read()).decode("utf-8")
+
+
 def pdf_to_images(pdf_path, start_page, end_page):
     image_paths = []
     parent_dir = os.path.dirname(pdf_path)

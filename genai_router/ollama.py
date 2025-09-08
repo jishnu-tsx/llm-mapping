@@ -18,17 +18,13 @@ class OllamaProvider(BaseProvider):
         Placeholder for image-to-markdown conversion.
         You will implement this logic.
         """
-
-        fy_1 = 2022
-        fy_2 = 2023
         md_convert_prompt_path = os.path.join(BASE_DIR, "prompts", "md_convert", "v1")
         with open(
             os.path.join(md_convert_prompt_path, "notes_image_convert.md"), "r"
         ) as f:
             notes_convert_prompt = f.read()
-        notes_convert_prompt = notes_convert_prompt.replace("{FY1}", fy_1)
-        notes_convert_prompt = notes_convert_prompt.replace("{FY2}", fy_2)
-        notes_md = ""
+        # notes_convert_prompt = notes_convert_prompt.replace("{FY1}", fy_1)
+        # notes_convert_prompt = notes_convert_prompt.replace("{FY2}", )
         notes_md = convert_to_md(notes_convert_prompt, image_path)
 
         return notes_md
@@ -39,8 +35,9 @@ class OllamaProvider(BaseProvider):
         try:
             markdown_contents = []
             if images:
-                markdown_contents = [self.convert_to_markdown(img) for img in images]
-
+                for img in images:
+                    md = self.convert_to_markdown(img)
+                    markdown_contents.append(md)
             full_prompt = prompt + "\n" + "\n\nnotes.md:\n".join(markdown_contents)
 
             data = {

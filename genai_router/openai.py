@@ -2,12 +2,7 @@ import os
 from openai import OpenAI
 from typing import List, Optional
 from .base import BaseProvider
-import base64
-
-
-def encode_image(image_path: str) -> str:
-    with open(image_path, "rb") as f:
-        return base64.b64encode(f.read()).decode("utf-8")
+from utils import convert_image_b64
 
 
 class OpenAIProvider(BaseProvider):
@@ -23,7 +18,7 @@ class OpenAIProvider(BaseProvider):
             if images:
                 for img in images:
                     if os.path.exists(img):  # local path
-                        b64_img = encode_image(img)
+                        b64_img = convert_image_b64(img)
                         contents.append(
                             {
                                 "type": "image_url",

@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 from genai_router.router import GenAIRouter
 
 
-gen_ai_router = GenAIRouter(provider="openai", model="gpt-4.1-mini")
+gen_ai_router = GenAIRouter(provider="openrouter", model="openai/gpt-4o")
 # gen_ai_router = GenAIRouter(provider="gemini", model="gemini-1.5-flash")
 
 
@@ -28,7 +28,7 @@ llm_router = LLMRouter()
 # === Configuration ===
 API_KEY = os.getenv("GOOGLE_API_KEY")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-OLLAMA_API_URL = os.getenv("OLLAMA_URL")
+
 
 genai.configure(api_key=API_KEY)
 
@@ -137,7 +137,7 @@ def section_mapping(request: BSSectionMappingRequestModel):
     Extract section markdown via Ollama Gemma, then refine with Gemini.
     """
     #! For local model uncomment this
-    # _gen_ai_router = GenAIRouter(provider="local", model="deepseek-r1:8b")
+    _gen_ai_router = GenAIRouter(provider="local", model="gemma3:4b")
     afs_path = os.path.join(BASE_DIR, "afs", f"{request.company_id}_afs.pdf")
 
     # Convert note pages + BS pages to images
