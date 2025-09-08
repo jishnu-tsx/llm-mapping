@@ -136,8 +136,8 @@ def section_mapping(request: BSSectionMappingRequestModel):
     Perform section-wise Balance Sheet mapping.
     Extract section markdown via Ollama Gemma, then refine with Gemini.
     """
-
-    _gen_ai_router = GenAIRouter(provider="local", model="deepseek-r1:8b")
+    #! For local model uncomment this
+    # _gen_ai_router = GenAIRouter(provider="local", model="deepseek-r1:8b")
     afs_path = os.path.join(BASE_DIR, "afs", f"{request.company_id}_afs.pdf")
 
     # Convert note pages + BS pages to images
@@ -229,7 +229,7 @@ def section_mapping(request: BSSectionMappingRequestModel):
     )
 
     try:
-        response_text = _gen_ai_router.route(user_input, notes_image_paths)
+        response_text = gen_ai_router.route(user_input, notes_image_paths)
         print("LLM Response:", response_text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error calling routed LLM: {e}")

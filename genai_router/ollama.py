@@ -5,7 +5,7 @@ from typing import List, Optional
 from utils import convert_to_md
 from .base import BaseProvider
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 class OllamaProvider(BaseProvider):
