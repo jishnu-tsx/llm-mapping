@@ -75,7 +75,7 @@ def bs_mapping(request_data: BsCompleteMappingWithNotesRequest):
 
     # Update BS JSON
     bs_json_path = os.path.join(BASE_DIR, "json", "bs.json")
-    path_to_store_op = os.path.join(BASE_DIR, "results", "bs_w_notes.json")
+    path_to_store_op = os.path.join(BASE_DIR, "results", "bs_notes.json")
     update_balance_sheet(bs_json_path, response_text, path_to_store_op)
 
     return {"status": "success", "message": "Mapping done, check logs for output"}

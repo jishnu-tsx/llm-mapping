@@ -156,7 +156,8 @@ def update_balance_sheet(
         json.dump(balance_sheet, f, indent=2, ensure_ascii=False)
 
     print(f"[INFO] Updated balance sheet saved at {output_path}")
-    bs_og_format_path = os.path.join(os.path.dirname(json_path), "balance_sheet.json")
+
+    bs_og_format_path = os.path.join(BASE_DIR, "json", "balance_sheet.json")
     # with open(bs_og_format_path, "w") as f:
     #     bs_og_format = f.read()
     res = process_and_save(
