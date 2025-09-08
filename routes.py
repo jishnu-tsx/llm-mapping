@@ -12,8 +12,13 @@ from models import (
     BsCompleteMappingWithNotesRequest,
     BSSectionMappingRequestModel,
 )
-from utils import pdf_to_images, update_balance_sheet
+from utils import pdf_to_images, update_balance_sheet, map_ocr_to_balance_sheet
 from dotenv import load_dotenv
+from gen_ai_router import GenAIRouter
+
+
+gen_ai_router = GenAIRouter(provider="gemini", model="gemini-1.5-flash")
+
 
 load_dotenv()
 
@@ -62,7 +67,7 @@ def bs_mapping(request_data: BsCompleteMappingWithNotesRequest):
 
     # Call Gemini
     try:
-        response_text = llm_router.route(user_input, image_paths)
+        response_text = gen_ai_router.route(user_input, image_paths)
         print("LLM Response:", response_text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error calling routed LLM: {e}")

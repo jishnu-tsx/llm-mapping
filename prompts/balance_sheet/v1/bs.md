@@ -99,6 +99,8 @@ mapping_source – the exact line item name from the balance sheet or notes that
 Output format:
 {
 name: variable_name
-value: mapped_value
+value_of_financial_year_1: mapped_value_of_financial_year_1
+value_of_financial_year_2: mapped_value_of_financial_year_2
 source : mapping_source
 }
+

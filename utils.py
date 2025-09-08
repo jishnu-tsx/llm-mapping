@@ -1,3 +1,4 @@
+import copy
 import os
 import fitz  # PyMuPDF
 import re
@@ -194,4 +195,104 @@ def update_balance_sheet(
         json.dump(balance_sheet, f, indent=2, ensure_ascii=False)
 
     print(f"[INFO] Updated balance sheet saved at {output_path}")
+    bs_og_format_path = os.path.join(os.path.dirname(json_path), "balance_sheet.json")
+    # with open(bs_og_format_path, "w") as f:
+    #     bs_og_format = f.read()
+    res = process_and_save(
+        bs_og_format_path, balance_sheet, os.path.dirname(output_path)
+    )
+    print(f"Successfully converted and saved at {res}")
     return balance_sheet
+
+
+def map_ocr_to_balance_sheet(balance_sheet, ocr_items):
+    """
+    Maps OCR extracted values into the hierarchical balance sheet JSON.
+
+    - balance_sheet: dict representing the uploaded balance_sheet.json
+    - ocr_items: list of dicts with keys ["id", "name", "ocr_value"]
+
+    Updates 'ocr_value' field of matching nodes if is_header is True,
+    otherwise puts the mapped values into 'value'.
+    Puts source string into 'remarks' inside ocr_value.
+    """
+
+    def update_node(node, ocr_lookup):
+        if not isinstance(node, dict):
+            return
+
+        node_id = node.get("id")
+        if node_id in ocr_lookup:
+            ocr_entry = ocr_lookup[node_id].get("ocr_value")
+            if ocr_entry is not None:
+                ocr_entry = copy.deepcopy(ocr_entry)
+                # Move `source` into remarks
+                source = ocr_entry.pop("source", None)
+                if source:
+                    ocr_entry["remarks"] = source
+
+                if node.get("is_header", False):
+                    # For headers → keep whole dict in ocr_value
+                    node["ocr_value"] = {
+                        "financial_year_1": ocr_entry.get("financial_year_1"),
+                        "financial_year_2": ocr_entry.get("financial_year_2"),
+                    }
+                    if "remarks" in ocr_entry:
+                        node["remarks"] = ocr_entry["remarks"]
+
+                else:
+                    # For leaf nodes → only numeric values go into value
+                    node["value"] = {
+                        "financial_year_1": ocr_entry.get("financial_year_1"),
+                        "financial_year_2": ocr_entry.get("financial_year_2"),
+                    }
+                    # Keep remarks separately if present
+                    if "remarks" in ocr_entry:
+                        node["remarks"] = ocr_entry["remarks"]
+
+        # Recurse into children
+        children = node.get("children")
+        if isinstance(children, dict):
+            for child_node in children.values():
+                update_node(child_node, ocr_lookup)
+
+    # Build lookup by id
+    ocr_lookup = {item["id"]: item for item in ocr_items}
+
+    # Iterate over all root-level items
+    for root_item in balance_sheet.get("items", []):
+        update_node(root_item, ocr_lookup)
+
+    return balance_sheet
+
+
+def process_and_save(
+    balance_sheet_path,
+    ocr_items,
+    output_folder,
+    output_filename="updated_balance_sheet.json",
+):
+    """
+    Loads balance sheet JSON, maps OCR values, and saves the updated JSON in the given folder.
+
+    - balance_sheet_path: path to the uploaded balance_sheet.json
+    - ocr_items: OCR extracted items
+    - output_folder: folder where updated JSON should be saved
+    - output_filename: name of output file (default 'updated_balance_sheet.json')
+    """
+    # Load balance sheet
+    with open(balance_sheet_path, "r", encoding="utf-8") as f:
+        balance_sheet = json.load(f)
+
+    # Update with OCR values
+    updated = map_ocr_to_balance_sheet(balance_sheet, ocr_items)
+
+    # Ensure folder exists
+    os.makedirs(output_folder, exist_ok=True)
+
+    # Save to file
+    output_path = os.path.join(output_folder, output_filename)
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(updated, f, indent=2, ensure_ascii=False)
+
+    return output_path
