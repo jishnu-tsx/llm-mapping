@@ -17,6 +17,7 @@ class OpenRouterProvider(BaseProvider):
         try:
             headers = {
                 "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json",
             }
             contents = [{"type": "text", "text": prompt}]
             if images:
