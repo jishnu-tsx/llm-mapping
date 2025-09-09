@@ -17,8 +17,8 @@ from dotenv import load_dotenv
 from genai_router.router import GenAIRouter
 
 
-# gen_ai_router = GenAIRouter(provider="local", model="deepseek-r1:8b")
-gen_ai_router = GenAIRouter(provider="gemini", model="gemini-1.5-flash")
+gen_ai_router = GenAIRouter(provider="local", model="deepseek-r1:8b")
+# gen_ai_router = GenAIRouter(provider="gemini", model="gemini-1.5-flash")
 
 
 load_dotenv()
