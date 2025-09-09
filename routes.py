@@ -17,8 +17,8 @@ from dotenv import load_dotenv
 from genai_router.router import GenAIRouter
 
 
-gen_ai_router = GenAIRouter(provider="local", model="deepseek-r1:8b")
-# gen_ai_router = GenAIRouter(provider="gemini", model="gemini-1.5-flash")
+# gen_ai_router = GenAIRouter(provider="local", model="deepseek-r1:8b")
+gen_ai_router = GenAIRouter(provider="gemini", model="gemini-1.5-flash")
 
 
 load_dotenv()
@@ -160,7 +160,9 @@ def section_mapping(request: BSSectionMappingRequestModel):
 
     md_convert_prompt_path = os.path.join(BASE_DIR, "prompts", "md_convert", "v1")
 
-    with open(os.path.join(md_convert_prompt_path, "md_convert.md"), "r") as f:
+    with open(
+        os.path.join(md_convert_prompt_path, "md_convert.md"), "r", encoding="utf-8"
+    ) as f:
         md_convert_prompt = f.read()
     section_name = request.section.name.replace("_", " ")
     md_convert_prompt = md_convert_prompt.replace(
@@ -201,6 +203,7 @@ def section_mapping(request: BSSectionMappingRequestModel):
     )
 
     try:
+        print(notes_image_paths)
         response_text = gen_ai_router.route(user_input, notes_image_paths)
         print("LLM Response:", response_text)
     except Exception as e:
