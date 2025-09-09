@@ -34,11 +34,12 @@ class OllamaProvider(BaseProvider):
     ) -> Optional[str]:
         try:
             markdown_contents = []
+            #! Commented for testing
             # if images:
             #     for img in images:
             #         md = self.convert_to_markdown(img)
             #         markdown_contents.append(md)
-
+            print(f"current wd: {os.getcwd}")
             with open("output.md", "r") as f:
                 markdown = f.read()
             markdown_contents.append(markdown)
