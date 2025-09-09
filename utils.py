@@ -214,6 +214,21 @@ def normalize_json_like(text: str) -> str:
     return text
 
 
+def safe_json_loads(s: str):
+    try:
+        return json.loads(s)
+    except json.JSONDecodeError:
+        # Try to strip markdown fences
+        if s.strip().startswith("```"):
+            s = s.strip().strip("`")
+            if s.startswith("json"):
+                s = s[4:].strip()
+        # Optionally: use a library like `json5` or `demjson3` for loose parsing
+        import json5
+
+        return json5.loads(s)
+
+
 def parse_plaintext_output(plain_text: str):
     """
     Parse entries from messy Gemini/Gemma-like output.
@@ -227,7 +242,7 @@ def parse_plaintext_output(plain_text: str):
     json_block = normalize_json_like(json_block)
 
     try:
-        data = json.loads(json_block)
+        data = safe_json_loads(json_block)
     except json.JSONDecodeError as e:
         raise ValueError(f"Could not parse JSON block: {e}")
 

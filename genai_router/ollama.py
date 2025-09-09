@@ -34,10 +34,14 @@ class OllamaProvider(BaseProvider):
     ) -> Optional[str]:
         try:
             markdown_contents = []
-            if images:
-                for img in images:
-                    md = self.convert_to_markdown(img)
-                    markdown_contents.append(md)
+            # if images:
+            #     for img in images:
+            #         md = self.convert_to_markdown(img)
+            #         markdown_contents.append(md)
+
+            with open("output.md", "r") as f:
+                markdown = f.read()
+            markdown_contents.append(markdown)
             full_prompt = prompt + "\n" + "\n\nnotes.md:\n".join(markdown_contents)
 
             data = {
