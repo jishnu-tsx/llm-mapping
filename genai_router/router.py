@@ -19,7 +19,7 @@ class GenAIRouter:
             self.provider = OpenRouterProvider(model)
         elif self.provider_name == "groqcloud":
             self.provider = GroqProvider(model)
-        elif self.provider_name == "local":
+        elif self.provider_name == "ollama":
             self.provider = OllamaProvider(model)
         else:
             raise ValueError(f"Unknown provider: {provider}")

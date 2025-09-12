@@ -1,23 +1,20 @@
-import json
 import os
-import base64
-from pathlib import Path
-from typing import List
+
 from route_llm_config import LLMRouter
-import requests
+
 import google.generativeai as genai
 from fastapi import APIRouter, HTTPException
 
-from models import (
+from balance_sheet.models import (
     BsCompleteMappingWithNotesRequest,
     BSSectionMappingRequestModel,
 )
-from utils import pdf_to_images, update_balance_sheet, convert_to_md
+from utils import pdf_to_images, generate_json_from_llm_output, convert_to_md_using_llm
 from dotenv import load_dotenv
 from genai_router.router import GenAIRouter
 
 
-gen_ai_router = GenAIRouter(provider="local", model="deepseek-r1:8b")
+gen_ai_router = GenAIRouter(provider="ollama", model="gpt-oss:latest")
 # gen_ai_router = GenAIRouter(provider="gemini", model="gemini-1.5-flash")
 
 
@@ -27,8 +24,7 @@ router = APIRouter()
 llm_router = LLMRouter()
 # === Configuration ===
 API_KEY = os.getenv("GOOGLE_API_KEY")
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 genai.configure(api_key=API_KEY)
 
@@ -74,9 +70,14 @@ def bs_mapping(request_data: BsCompleteMappingWithNotesRequest):
         raise HTTPException(status_code=500, detail=f"Error calling routed LLM: {e}")
 
     # Update BS JSON
-    bs_json_path = os.path.join(BASE_DIR, "json", "bs.json")
-    path_to_store_op = os.path.join(BASE_DIR, "results", "bs_notes.json")
-    update_balance_sheet(bs_json_path, response_text, path_to_store_op)
+    bs_json_path = os.path.join(BASE_DIR, "json", "balance_sheet", "bs.json")
+    bs_formatted_json_path = os.path.join(
+        BASE_DIR, "json", "balance_sheet", "bs_formatted.json"
+    )
+    path_to_store_op = os.path.join(BASE_DIR, "results", "balance_sheet", "bs.json")
+    generate_json_from_llm_output(
+        bs_json_path, response_text, path_to_store_op, bs_formatted_json_path
+    )
 
     return {"status": "success", "message": "Mapping done, check logs for output"}
 
@@ -122,15 +123,19 @@ def bs_mapping_w_notes(request_data: BsCompleteMappingWithNotesRequest):
         print("LLM Response:", response_text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error calling routed LLM: {e}")
-
-    bs_json_path = os.path.join(BASE_DIR, "json", "bs.json")
+    bs_json_path = os.path.join(BASE_DIR, "json", "balance_sheet", "bs.json")
+    bs_formatted_json_path = os.path.join(
+        BASE_DIR, "json", "balance_sheet", "bs_formatted.json"
+    )
     path_to_store_op = os.path.join(BASE_DIR, "results", "bs_w_notes.json")
-    update_balance_sheet(bs_json_path, response_text, path_to_store_op)
+    generate_json_from_llm_output(
+        bs_json_path, response_text, path_to_store_op, bs_formatted_json_path
+    )
 
     return {"status": "success", "message": "Balance Sheet + Notes mapping completed."}
 
 
-@router.post("/section-mapping")
+@router.post("/bs-section-mapping")
 def section_mapping(request: BSSectionMappingRequestModel):
     """
     Perform section-wise Balance Sheet mapping.
@@ -157,21 +162,19 @@ def section_mapping(request: BSSectionMappingRequestModel):
     #         encoded_images.append(base64.b64encode(f.read()).decode("utf-8"))
 
     # Call Ollama Gemma for section markdown
+    # Todo: Implement this using db
+    md_convert_prompt_path = os.path.join(
+        BASE_DIR, "prompts", "md_convert", "v1", "md_convert.md"
+    )
 
-    md_convert_prompt_path = os.path.join(BASE_DIR, "prompts", "md_convert", "v1")
-
-    with open(
-        os.path.join(md_convert_prompt_path, "md_convert.md"), "r", encoding="utf-8"
-    ) as f:
+    with open(md_convert_prompt_path, "r", encoding="utf-8") as f:
         md_convert_prompt = f.read()
     section_name = request.section.name.replace("_", " ")
-    md_convert_prompt = md_convert_prompt.replace(
-        '{request.section.name.replace("_", " ")}', section_name
-    )
+    md_convert_prompt = md_convert_prompt.replace("{section_name}", section_name)
 
     md_convert_prompt = md_convert_prompt.replace("{FY1}", request.fy1)
     md_convert_prompt = md_convert_prompt.replace("{FY2}", request.fy2)
-    section_markdown = convert_to_md(md_convert_prompt, bs_image_paths)
+    section_markdown = convert_to_md_using_llm(md_convert_prompt, bs_image_paths)
 
     #! Converting notes to md : currently done in ollama.py
     # with open(os.path.join(md_convert_prompt_path, "notes_image_convert.md"), "r") as f:
@@ -180,7 +183,7 @@ def section_mapping(request: BSSectionMappingRequestModel):
     # notes_convert_prompt = notes_convert_prompt.replace("{FY2}", fy_2)
     # notes_md = ""
     # for note_image_path in notes_image_paths:
-    #     notes_md = convert_to_md(notes_convert_prompt, note_image_path)
+    #     notes_md = convert_to_md_using_llm(notes_convert_prompt, note_image_path)
     #     notes_md = notes_md + notes_md
     # Load section-specific prompt
     try:
@@ -203,19 +206,26 @@ def section_mapping(request: BSSectionMappingRequestModel):
     )
 
     try:
-        print(notes_image_paths)
         response_text = gen_ai_router.route(user_input, notes_image_paths)
         print("LLM Response:", response_text)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error calling routed LLM: {e}")
-
+    bs_formatted_json_path = os.path.join(
+        BASE_DIR, "json", "balance_sheet", "bs_formatted.json"
+    )
     result_path = (
         os.path.join(BASE_DIR, "results", "bs_w_notes.json")
         if os.path.exists(os.path.join(BASE_DIR, "results", "bs_w_notes.json"))
         else os.path.join(BASE_DIR, "results", "bs.json")
     )
 
-    update_balance_sheet(result_path, response_text, result_path, update_mode=True)
+    generate_json_from_llm_output(
+        result_path,
+        response_text,
+        result_path,
+        bs_formatted_json_path,
+        update_mode=True,
+    )
 
     return {
         "status": "success",

@@ -1,4 +1,4 @@
-Extract ONLY the section: **{request.section.name.replace("_", " ")}** 
+Extract ONLY the section: **{section_name}** 
 from the given full balance sheet image. 
 Rules:
 - Return EXACTLY as it appears in the balance sheet, without inventing subcategories or expanding into items not explicitly shown.

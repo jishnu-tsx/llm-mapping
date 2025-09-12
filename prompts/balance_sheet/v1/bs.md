@@ -1,13 +1,14 @@
 Task: Balance Sheet Field Mapping
-You are given a set of balance sheet images (these contain financial data). Your job is to map the values from these balance sheet images into the target variables provided.
+You are given a set of balance sheet images or a markdown of the balance sheet (these contain financial data). Your job is to map the values from these balance sheet into the target variables provided.
+
+Remember: All the fields here are based on 'Indian Financial Standard'
+
 Rules for Mapping:
-Extract data: First, read the fields and values from the balance sheet images.
+Extract data: First, read the fields and values from the balance sheet.
 Identify relevant fields: Match each target variable with the most relevant line item in the balance sheet.
 If the line item name exactly matches → use it.
 If it is a synonym or a close equivalent → use it.
 If no clear match exists → leave it unmapped and place it under “Other unmapped fields.”
-Use notes for breakdowns: If a variable requires detailed breakdown, check the Notes section of the balance sheet images.
-Pick pre-depreciation values: If multiple values exist (before and after depreciation), always take the before depreciation value.
 Negative values: Any value inside brackets () should be treated as negative.
 No new variables: Only map to the provided variables. Do not invent new fields.
 
@@ -94,7 +95,7 @@ Output Requirements:
 Create a table with the following columns:
 variable_name – only target variable name no need for its parents name .
 mapped_value – the numeric value you extracted.
-mapping_source – the exact line item name from the balance sheet or notes that you used.Task: Balance Sheet Field Mapping
+mapping_source – the exact line item name from the balance sheet that you used
 
 Output format:
 {

@@ -1,0 +1,534 @@
+{
+  "report_type": "Profit and loss statement",
+  "financial_year": "2024",
+  "items": [
+    {
+      "id": "1e91186d-8171-49dd-82ee-2397b9f990bb",
+      "name": "Gross Sales(Manufacturing)",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "1e670e2d-eeef-4abe-84d8-cc881433b4a4",
+      "name": "Less: Excise Duty",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "91cb2c8f-29c5-40e4-9bc8-ea13669269a6",
+      "name": "Net Sales(Manufacturing Sales)",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "1e99d476-30c8-45a9-af7d-e493a8b4d546",
+      "name": "Gross Sales(Trading)",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "d600ec36-a51f-42e0-bdfc-4a71392343d4",
+      "name": "Less: Other Duties",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "64e059b2-0592-4390-a063-90218b8d30ef",
+      "name": "Net Sales(Trading)",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "0c90348a-35af-4406-ad35-c7896cfeeeca",
+      "name": "Gain on FX Exchange",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "be0aa303-980f-4d3c-b234-2f3cf7983098",
+      "name": "Other Operating Income (e.g. Processing Charges)",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "f8392262-a7c3-4867-b878-889df8a049fd",
+      "name": "Total Operating Income",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "c569a684-d9ec-49d6-a67e-8df0bfbaee8e",
+      "name": "Gain on sale of Fixed Assets / Investments",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "b96e68af-7e08-4abf-9065-d4b1b387eb94",
+      "name": "Other Income(Excluding Interest Income)",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "9ac39ee8-2002-4fc7-bdd8-15635c4bf947",
+      "name": "Total Income",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "4e404703-93b5-4e73-a3b4-0c97b489cd93",
+      "name": "Purchases(Finsihed Goods)",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "e2ae461f-6dbf-45d4-a2c0-54323a5a1c29",
+      "name": "Raw Material Consumed",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "b00998c2-7eb4-4224-a66b-00ad4249fa67",
+      "name": "Power Costs(if related to manufacturing)",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "a5da4e4b-3803-4662-9e95-507d93e20206",
+      "name": "Logistics Costs",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "ec0941fc-7b8f-475f-9396-9fbca6a58489",
+      "name": "Any other Direct Costs (e.g. Other Manufacturing Expenses)",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "bf857ca2-2590-4b08-a691-958758bf2f97",
+      "name": "Increase/(Decrease) in Inventory(Finshed Goods/WIP)",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "86dd3452-b17b-4774-abe2-b8ada2c5de72",
+      "name": "Cost of Goods Sold",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "bfaedca0-24b4-40cb-a999-8f22f6f16652",
+      "name": "Gross Profit(Excluding Depn/other Income)",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "47fa9d1d-e8ea-46e6-8967-a1df11c5447e",
+      "name": "Employees Employments(To the extent not included in direct costs)",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "820ed144-91ed-4b56-905e-6cd54b171d80",
+      "name": "Operational lease payments",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "22604377-dd27-4a8f-b836-65c1b8d1954f",
+      "name": "Other Costs",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "0e2e9277-af0a-4d45-9a96-590429dbb488",
+      "name": "Rent",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "ffa4ea36-e447-4149-bf5d-be948a0c2443",
+      "name": "Repair & Maintenance",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "d8fb5fab-0493-4774-af73-92dc9652d3c6",
+      "name": "Loss on Foreign Exchange",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "adf53588-34a8-47c3-92a2-fa024b5a27f3",
+      "name": "Selling/Marketing/Commission/Advertisement Cost",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "a0ee677f-1cc4-4c33-ad21-9bfe9a7afd5f",
+      "name": "Discount Given",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "f48459a9-744e-4105-948f-6e9eafbd8b12",
+      "name": "Legal Costs",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "b2fd7027-11ba-4176-a29a-fe50324f6653",
+      "name": "Insurance",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "220352bb-917c-489e-9f40-b77c99b7ea15",
+      "name": "Bad-Debt/Write-off",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "9ee3a4cf-28b3-4c2f-ab1e-bba704d0585e",
+      "name": "Operational provisions(Pls Specify)",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "7572b37f-a86f-4e65-9de2-38952a96d10f",
+      "name": "Total Adminstration Expenses",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "1bcad25f-decd-4933-aab1-f1fb6d120e1c",
+      "name": "Total Operating Expenses",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "a35018bb-9910-40ef-ade9-405644ec754f",
+      "name": "EBITDA",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "e8edfc3f-bc33-4af5-aede-2a9be95bb59f",
+      "name": "Depreciation",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "3dc3b647-d07f-4cb0-a2fb-bb0a407b92b3",
+      "name": "Amortization",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "2c6402df-8222-4b30-99f8-509ac9c6004c",
+      "name": "Total D/A",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "18af5373-54b6-4673-bfb8-067dac964281",
+      "name": "EBIT",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "e542a1ff-4a2c-4fb8-9096-637ca564495d",
+      "name": "Interest Income recd.",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "942c927b-d9f1-4bf1-9293-ab0c954cb128",
+      "name": "Interest paid",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "5f61b133-4ac9-46ec-a6e8-5629a64b7fd1",
+      "name": "Interest expenses net",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "d90254d0-2983-4620-b75f-cd7cd2caf4d2",
+      "name": "EBT before exceptionals",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "c34d5b80-767b-485b-a153-dc4657d1d14f",
+      "name": "Exceptional income - Cash",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "85003a9d-c5f3-4b00-b1f4-712adc6baa49",
+      "name": "Exceptional expenses-Non Cash",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "d77a83c2-ea2f-44a4-aa51-4a064155887e",
+      "name": "Exceptional Income-Non Cash",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "98062d2e-3a7b-49af-81df-9b01c61c57ae",
+      "name": "Exceptional expenses-Cash",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "6f4e194c-13ea-4d21-8721-8a3f36facbde",
+      "name": "EBT",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "e9cb7c64-d48a-4409-ae3c-498d0faa44ea",
+      "name": "Current Tax",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "3a2d5ea0-81a7-49af-a2f1-a0f7008bbb70",
+      "name": "Deferred Tax",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "14cb84d0-6d88-45ef-9f2a-4075aa3b8ecc",
+      "name": "EAT",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "a761f69d-93ff-4438-a9b6-e19f3bbb6b19",
+      "name": "Dividends",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "afa6365d-d40b-4461-9099-2830dba5318d",
+      "name": "Retained Profit",
+      "value": 0.0,
+      "is_header": false,
+      "calculations": null,
+      "children": null,
+      "children_sequence": null
+    },
+    {
+      "id": "de606690-f414-4440-88fd-36bc39c62f30",
+      "name": "Net Cash Accruals",
+      "value": null,
+      "is_header": false,
+      "calculations": {
+        "formula": "sum(children)",
+        "computed_value": null
+      },
+      "children": null,
+      "children_sequence": null
+    }
+  ]
+}
